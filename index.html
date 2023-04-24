@@ -55,6 +55,7 @@
         // One news
 
         const channelsNames = ['Alarabiya', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'France 24 Arabic', 'Orient', 'Sky News Arabic'];
+
         const setSrc = (link) => {
             console.log('Changing the channel...');
             document.getElementById('iframe').setAttribute('src', link);
@@ -68,6 +69,7 @@
                     setSrc(channel);
                 }
                 button.setAttribute('class', 'display-block');
+                button.classList.add('channel-button');
                 button.appendChild(text);
                 document.getElementById('channels-buttons-container').appendChild(button);
                 channelsCounter++;
@@ -97,6 +99,15 @@
                     setSrc(channelsLinks[++currentChannel]);
                 }
                 console.log(`current channel ${currentChannel}`);
+                changeActiveChannelButtonStyle(currentChannel)
+
+            }
+
+            function changeActiveChannelButtonStyle(active) {
+                console.log('channel buttons total:');
+                let channelButtons = document.querySelectorAll('.channel-button');
+                console.log(channelButtons.length);
+                channelButtons[active].style.color = 'red';
             }
 
             window.addEventListener('keydown', checkkey)
