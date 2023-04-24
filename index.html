@@ -30,39 +30,49 @@
 
             // Arabic Group
             // Alarabiya
-            "https://www.youtube.com/embed/_rewJPptlBg?rel=0;&autoplay=1&mute=0&loop=1&playlist=_rewJPptlBg",
+            "https://www.youtube.com/embed/_rewJPptlBg?rel=0;&autoplay=1&mute=0&loop=1&playlist=_rewJPptlBg&controls=0",
+            // Alaraby
+            "https://www.youtube.com/embed/GmReF2wxHE8?rel=0;&autoplay=1&mute=0&loop=1&playlist=GmReF2wxHE8&controls=0",
             // Alghad
-            "https://www.youtube.com/embed/2B2PykdazOA?rel=0;&autoplay=1&mute=0&loop=1&playlist=2B2PykdazOA",
+            "https://www.youtube.com/embed/2B2PykdazOA?rel=0;&autoplay=1&mute=0&loop=1&playlist=2B2PykdazOA&controls=0",
             // Alhadath
-            "https://www.youtube.com/embed/St61kDYyrvk?rel=0;&autoplay=1&mute=0&loop=1&playlist=St61kDYyrvk",
+            "https://www.youtube.com/embed/St61kDYyrvk?rel=0;&autoplay=1&mute=0&loop=1&playlist=St61kDYyrvk&controls=0",
             // Asharq
-            "https://www.youtube.com/embed/3-w4NKvDp9A?rel=0;&autoplay=1&mute=0&loop=1&playlist=w4NKvDp9A",
+            "https://www.youtube.com/embed/f6VpkfV7m4Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=f6VpkfV7m4Y&controls=0",
             // BBC
-            "https://www.youtube.com/embed/HxI2TxhhS9A?rel=0;&autoplay=1&mute=0&loop=1&playlist=HxI2TxhhS9A",
+            "https://www.youtube.com/embed/HxI2TxhhS9A?rel=0;&autoplay=1&mute=0&loop=1&playlist=HxI2TxhhS9A&controls=0",
             // DW Arabic
-            "https://www.youtube.com/embed/8BZpOolYLUA?rel=0;&autoplay=1&mute=0&loop=1&playlist=8BZpOolYLUA",
+            "https://www.youtube.com/embed/rxOWsyxrl4A?rel=0;&autoplay=1&mute=0&loop=1&playlist=rxOWsyxrl4A&controls=0",
+            // CNBC Arabia
+            "https://www.dailymotion.com/embed/video/x7zjeht?autoplay=1&controls=0",
             // France 24 Arabic
+            "https://www.youtube.com/embed/8BZpOolYLUA?rel=0;&autoplay=1&mute=0&loop=1&playlist=8BZpOolYLUA&controls=0",
             // Orient
-            "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4",
+            "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4&controls=0",
             // Sky News Arabic
-            "https://www.youtube.com/embed/ydH1PwIB0E?rel=0;&autoplay=1&mute=0&loop=1&playlist=yd_H1PwIB0E"
+            "https://www.youtube.com/embed/ydH1PwIB0E?rel=0;&autoplay=1&mute=0&loop=1&playlist=yd_H1PwIB0E&controls=0",
+            // Altaghier
+            "https://player.castr.com/live_d33349a0962a11ed907dd9e556777b63",
+            // Dijlah
+            "https://ghaasiflu.online/Dijlah/embed.html"
         ];
 
         // Alsharqiya
-        // Dijlah
         // Zagros Arabic
         // UTV
         // Alfalujah
         // Huna Baghdad
         // One news
 
-        const channelsNames = ['Alarabiya', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'France 24 Arabic', 'Orient', 'Sky News Arabic'];
+        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah'];
 
         const setSrc = (link) => {
             console.log('Changing the channel...');
             document.getElementById('iframe').setAttribute('src', link);
+            changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
         }
             let channelsCounter = 0;
+
             channelsLinks.forEach((channel) => {
                 console.log(channel);
                 let button = document.createElement('BUTTON');
@@ -101,8 +111,6 @@
                     setSrc(channelsLinks[++currentChannel]);
                 }
                 console.log(`current channel ${currentChannel}`);
-                changeActiveChannelButtonStyle(currentChannel)
-
             }
 
             function changeActiveChannelButtonStyle(active) {
