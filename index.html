@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylesheet.css">
+   
+</head>
+<body>
+    <div class="position-relative">
+      <div class="position-absolute groups-container">
+          <button class="display-block width-100-percent">English</button>
+          <button class="display-block width-100-percent" onmouseover= show(0) onmouseout="hide(0)">Arabic</button>
+          <button class="display-block width-100-percent">Dutch</button>
+          <button class="display-block width-100-percent">Iraqi</button>
+      </div>
+      <div id="channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
+
+      </div>
+    </div>
+
+    <div>
+        <iframe id="iframe" class="border-none" src="https://www.youtube.com/embed/HxI2TxhhS9A"></iframe>
+    </div>
+
+    <script>
+        const channelsLinks = [
+            // Arabic Group
+            // Alarabiya
+            "https://www.youtube.com/embed/UDNO9R7C4oQ",
+            // Alghad
+            "https://www.youtube.com/embed/CQJTh00eib0",
+            // Alhadath
+            "https://www.youtube.com/embed/St61kDYyrvk",
+            // Asharq
+            "https://www.youtube.com/embed/3-w4NKvDp9A",
+            // BBC
+            "https://www.youtube.com/embed/HxI2TxhhS9A",
+            // France 24 Arabic
+            "https://www.youtube.com/embed/8BZpOolYLUA",
+            // Orient
+            "https://www.youtube.com/embed/rqbChsd8IH4",
+            // Sky News Arabic
+            "https://www.youtube.com/embed/yd_H1PwIB0E"
+        ];
+
+        // Alsharqiya
+        // Dijlah
+        // Zagros Arabic
+        // UTV
+        // Alfalujah
+        // Huna Baghdad
+        // One news
+
+        const channelsNames = ['Alarabiya', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'France 24 Arabic', 'Orient', 'Sky News Arabic'];
+        const setSrc = (link) => {
+            console.log('Changing the channel...');
+            document.getElementById('iframe').setAttribute('src', link);
+        }
+            let channelsCounter = 0;
+            channelsLinks.forEach((channel) => {
+                console.log(channel);
+                let button = document.createElement('BUTTON');
+                let text = document.createTextNode(channelsNames[channelsCounter]);
+                button.onclick = function () {
+                    setSrc(channel);
+                }
+                button.setAttribute('class', 'display-block');
+                button.appendChild(text);
+                document.getElementById('channels-buttons-container').appendChild(button);
+                channelsCounter++;
+            });
+
+            const show = (item) => {
+                // console.log('show..');
+                document.getElementById('channels-buttons-container').style.display = 'block';
+            }
+
+            const hide = (item) => {
+                // console.log('hide');
+                document.getElementById('channels-buttons-container').style.display = 'none';
+            }  
+
+            // Add next and previous buttons event listener
+            function checkkey(event) {
+                let currentChannel = channelsLinks.indexOf(document.getElementById('iframe').src);
+                console.log(`Key code: ${event.keyCode}`);
+                if(event.keyCode == 37 && currentChannel > 0) {
+                    // console.log(currentChannel);
+                    // console.log(--currentChannel);
+                    // console.log(currentChannel);
+                    setSrc(channelsLinks[--currentChannel]);
+
+                } else if(event.keyCode == 39 && currentChannel < channelsLinks.length - 1) {
+                    setSrc(channelsLinks[++currentChannel]);
+                }
+                console.log(`current channel ${currentChannel}`);
+            }
+
+            window.addEventListener('keydown', checkkey)
+    </script>
+  </body>
+</html>
