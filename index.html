@@ -107,7 +107,12 @@
                 console.log('channel buttons total:');
                 let channelButtons = document.querySelectorAll('.channel-button');
                 console.log(channelButtons.length);
-                channelButtons[active].style.color = 'red';
+                document.querySelectorAll('.active-channel').forEach((channel) => {
+                    channel.classList.remove('active-channel');
+
+
+                })
+                channelButtons[active].classList.add('active-channel');
             }
 
             window.addEventListener('keydown', checkkey)

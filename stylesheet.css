@@ -54,3 +54,8 @@ button:hover {
     width: 16%;
     display: none;
 }
+
+.active-channel {
+    font-weight: bolder;
+}
+
