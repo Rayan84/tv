@@ -16,6 +16,12 @@ button:hover {
     background-color: black;
 }
 
+.hamburger {
+    left: 0;
+    top: 0;
+    width: 1rem;
+}
+
 .display-flex {
     display: flex;
 }
@@ -41,6 +47,7 @@ button:hover {
 
 .groups-container {
     width: 10%;
+    left: 4rem;
 }
 
 #iframe {
