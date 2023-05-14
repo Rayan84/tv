@@ -48,6 +48,7 @@ button:hover {
 .groups-container {
     width: 10%;
     left: 4rem;
+    display: none;
 }
 
 #iframe {
