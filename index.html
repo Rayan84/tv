@@ -11,19 +11,17 @@
 <body>
     <div class="position-relative">
         <div class="position-absolute">
-            <button class="hamburger">&#9776;</button>
+            <button class="hamburger" id="hamburger" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">&#9776;</button>
         </div>
-      <div class="position-absolute groups-container">
-          <button class="display-block width-100-percent">English</button>
-          <button class="display-block width-100-percent" onmouseover= show(0) onmouseout="hide(0)">Arabic</button>
-          <button class="display-block width-100-percent">Dutch</button>
-          <button class="display-block width-100-percent">Iraqi</button>
+      <div id="groups-container" class="position-absolute groups-container" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
+          <button id="english" class="display-block width-100-percent" onmouseover="show('english')" onmouseout="hide('english')">English</button>
+          <button id="arabic" class="display-block width-100-percent" onmouseover="show('arabic')" onmouseout="hide('arabic')">Arabic</button>
+          <button id="dutch" class="display-block width-100-percent" onmouseover="show('dutch')" onmouseout="hide('dutch')">Dutch</button>
+          <button id="iraq" class="display-block width-100-percent" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
       </div>
       <div id="channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
-
       </div>
     </div>
-
     <div>
         <iframe id="iframe" class="border-none" src="https://www.youtube.com/embed/HxI2TxhhS9A" allow="autoplay" frameborder="0"></iframe>
     </div>
@@ -112,12 +110,12 @@
 
             const show = (item) => {
                 // console.log('show..');
-                document.getElementById('channels-buttons-container').style.display = 'block';
+                document.getElementById(item).style.display = 'block';
             }
 
             const hide = (item) => {
                 // console.log('hide');
-                document.getElementById('channels-buttons-container').style.display = 'none';
+                document.getElementById(item).style.display = 'none';
             }  
 
             // Add next and previous buttons event listener
