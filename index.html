@@ -13,14 +13,21 @@
         <div class="position-absolute">
             <button class="hamburger" id="hamburger" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">&#9776;</button>
         </div>
-      <div id="groups-container" class="position-absolute groups-container" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
-          <button id="english" class="display-block width-100-percent" onmouseover="show('english')" onmouseout="hide('english')">English</button>
-          <button id="arabic" class="display-block width-100-percent" onmouseover="show('arabic')" onmouseout="hide('arabic')">Arabic</button>
-          <button id="dutch" class="display-block width-100-percent" onmouseover="show('dutch')" onmouseout="hide('dutch')">Dutch</button>
-          <button id="iraq" class="display-block width-100-percent" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
-      </div>
-      <div id="channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
-      </div>
+        <div id="groups-container" class="position-absolute groups-container" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
+          <button id="" class="display-block width-100-percent" onmouseover="show('english-channels-buttons-container')" onmouseout="hide('english-channels-buttons-container')">English</button>
+          <button id="" class="display-block width-100-percent" onmouseover="show('arabic-channels-buttons-container')" onmouseout="hide('arabic-channels-buttons-container')">Arabic</button>
+          <button id="" class="display-block width-100-percent" onmouseover="show('dutch-channels-buttons-container')" onmouseout="hide('dutch-channels-buttons-container')">Dutch</button>
+          <button id="" class="display-block width-100-percent" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
+        </div>
+
+        <div id="arabic-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
+        </div>
+        <div id="english-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
+        </div>
+        <div id="dutch-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
+        </div>
+        <div id="iraq-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
+        </div>
     </div>
     <div>
         <iframe id="iframe" class="border-none" src="https://www.youtube.com/embed/HxI2TxhhS9A" allow="autoplay" frameborder="0"></iframe>
@@ -65,7 +72,6 @@
             // LBC
             "https://www.youtube.com/embed/pgLRedUtGw4?rel=0;&autoplay=1&mute=0&loop=1&playlist=pgLRedUtGw4",
             // yahoo
-            // <iframe width="1280" height="720" src="https://www.youtube.com/embed/Eu-i94y1Z8E" title="Stock Market Today - Monday Afternoon April 24 Yahoo Finance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             // WION
             "https://www.youtube.com/embed/5F1Eyf5QN3o",
             // Euro News
@@ -85,14 +91,14 @@
         // Huna Baghdad
         // One news
 
-        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah'];
+        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah', 'Alfaloujah', 'DW Englsih', 'Unknown', 'Westminister', 'Unknown2', 'Euronews English', 'CNA', 'Unknown3', 'Unknown4'];
 
         const setSrc = (link) => {
             console.log('Changing the channel...');
             document.getElementById('iframe').setAttribute('src', link);
             changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
         }
-            let channelsCounter = 0;
+        let channelsCounter = 0;
 
             channelsLinks.forEach((channel) => {
                 console.log(channel);
@@ -104,7 +110,15 @@
                 button.setAttribute('class', 'display-block');
                 button.classList.add('channel-button');
                 button.appendChild(text);
-                document.getElementById('channels-buttons-container').appendChild(button);
+                
+                if(channelsLinks.indexOf(channel) < 14) {
+                    document.getElementById('arabic-channels-buttons-container').appendChild(button);
+                } else if(channelsLinks.indexOf(channel) > 14 && channelsLinks.indexOf(channel) > 18) {
+                    document.getElementById('english-channels-buttons-container').appendChild(button);
+                } else {
+                    document.getElementById('dutch-channels-buttons-container').appendChild(button);
+                }
+                
                 channelsCounter++;
             });
 
@@ -121,27 +135,21 @@
             // Add next and previous buttons event listener
             function checkkey(event) {
                 let currentChannel = channelsLinks.indexOf(document.getElementById('iframe').src);
-                console.log(`Key code: ${event.keyCode}`);
+                //console.log(`Key code: ${event.keyCode}`);
                 if(event.keyCode == 37 && currentChannel > 0) {
-                    // console.log(currentChannel);
-                    // console.log(--currentChannel);
-                    // console.log(currentChannel);
                     setSrc(channelsLinks[--currentChannel]);
-
                 } else if(event.keyCode == 39 && currentChannel < channelsLinks.length - 1) {
                     setSrc(channelsLinks[++currentChannel]);
                 }
-                console.log(`current channel ${currentChannel}`);
+                //console.log(`current channel ${currentChannel}`);
             }
 
             function changeActiveChannelButtonStyle(active) {
-                console.log('channel buttons total:');
+                console.log(`changing active channel style of number: ${active}`);
                 let channelButtons = document.querySelectorAll('.channel-button');
                 console.log(channelButtons.length);
                 document.querySelectorAll('.active-channel').forEach((channel) => {
                     channel.classList.remove('active-channel');
-
-
                 })
                 channelButtons[active].classList.add('active-channel');
             }
