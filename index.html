@@ -40,9 +40,9 @@
             // Alarabiya
             "https://www.youtube.com/embed/_rewJPptlBg?rel=0;&autoplay=1&mute=0&loop=1&playlist=_rewJPptlBg&controls=0",
             // Alaraby
-            "https://www.youtube.com/embed/GmReF2wxHE8?rel=0;&autoplay=1&mute=0&loop=1&playlist=GmReF2wxHE8&controls=0",
+            "https://www.youtube.com/embed/GeYbOcqx_WE?rel=0;&autoplay=1&mute=0&loop=1&playlist=GeYbOcqx_WE&controls=0",
             // Alghad
-            "https://www.youtube.com/embed/2B2PykdazOA?rel=0;&autoplay=1&mute=0&loop=1&playlist=2B2PykdazOA&controls=0",
+            "https://www.youtube.com/embed/5Ekor_LxhqE?rel=0;&autoplay=1&mute=0&loop=1&playlist=5Ekor_LxhqE&controls=0",
             // Alhadath
             "https://www.youtube.com/embed/St61kDYyrvk?rel=0;&autoplay=1&mute=0&loop=1&playlist=St61kDYyrvk&controls=0",
             // Asharq
@@ -65,8 +65,18 @@
             "https://ghaasiflu.online/Dijlah/embed.html",
             // Alfallujah
             "https://vimeo.com/event/885461/embed",
+
+            // Arirang
+            "https://www.youtube.com/embed/APlvA2wtdKk?rel=0;&autoplay=1&mute=0&loop=1&playlist=APlvA2wtdKk&controls=0",
+            // CGTN
+            "https://www.youtube.com/embed/gYUfs9RX95s?rel=0;&autoplay=1&mute=0&loop=1&playlist=gYUfs9RX95s&controls=0",
             // DW English
             "https://www.youtube.com/embed/pqabxBKzZ6M?rel=0;&autoplay=1&mute=0&loop=1&playlist=pqabxBKzZ6M&controls=0",
+            // France 24 English
+            "https://www.youtube.com/embed/h3MuIUNCCzI?rel=0;&autoplay=1&mute=0&loop=1&playlist=h3MuIUNCCzI&controls=0",
+            // GB News
+            "https://www.youtube.com/embed/8WX6YL9JnLw?rel=0;&autoplay=1&mute=0&loop=1&playlist=8WX6YL9JnLw&controls=0",
+
             // Sky News English
             "https://www.youtube.com/embed/9Auq9mYxFEE?rel=0;&autoplay=1&mute=0&loop=1&playlist=9Auq9mYxFEE&controls=0",
             // LBC
@@ -84,6 +94,11 @@
             "https://www.youtube.com/embed/dp8PhLsUcFE?rel=0;&autoplay=1&mute=0&loop=1&playlist=dp8PhLsUcFE"
         ];
 
+        // template link
+
+        // "https://www.youtube.com/embed/?rel=0;&autoplay=1&mute=0&loop=1&playlist=&controls=0",
+
+
         // <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yc36ujEIjPc" title="مستجدات الأوضاع في السودان.. تغطية حية لحظة بلحظة" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         // Alsharqiya
         // Zagros Arabic
@@ -91,7 +106,7 @@
         // Huna Baghdad
         // One news
 
-        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah', 'Alfaloujah', 'DW Englsih', 'Unknown', 'Westminister', 'Unknown2', 'Euronews English', 'CNA', 'Unknown3', 'Unknown4'];
+        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah', 'Alfaloujah', 'Arirang', 'CGTN', 'DW Englsih', 'France 24 English', 'GB News', 'Sky News English', 'Westminister', 'Unknown2', 'Euronews English', 'CNA', 'Unknown3', 'Unknown4'];
         
         const saveLastActiveChannel = (num) => {
             localStorage.setItem('lastChannel', num);
@@ -134,7 +149,7 @@
                 
                 if(channelsLinks.indexOf(channel) < 14) {
                     document.getElementById('arabic-channels-buttons-container').appendChild(button);
-                } else if(channelsLinks.indexOf(channel) >= 14 && channelsLinks.indexOf(channel) < 22) {
+                } else if(channelsLinks.indexOf(channel) >= 14 && channelsLinks.indexOf(channel) < 200) {
                     document.getElementById('english-channels-buttons-container').appendChild(button);
                 } else {
                     document.getElementById('dutch-channels-buttons-container').appendChild(button);
