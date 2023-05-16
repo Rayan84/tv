@@ -30,7 +30,7 @@
         </div>
     </div>
     <div>
-        <iframe id="iframe" class="border-none" src="https://www.youtube.com/embed/HxI2TxhhS9A" allow="autoplay" frameborder="0"></iframe>
+        <iframe id="iframe" class="border-none" src="" allow="autoplay" frameborder="0"></iframe>
     </div>
 
     <script>
@@ -92,12 +92,33 @@
         // One news
 
         const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah', 'Alfaloujah', 'DW Englsih', 'Unknown', 'Westminister', 'Unknown2', 'Euronews English', 'CNA', 'Unknown3', 'Unknown4'];
+        
+        const saveLastActiveChannel = (num) => {
+            localStorage.setItem('lastChannel', num);
+            console.log(`lastChannel set to ${localStorage.getItem('lastChannel')}`)
+        }
 
         const setSrc = (link) => {
             console.log('Changing the channel...');
             document.getElementById('iframe').setAttribute('src', link);
             changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
+            saveLastActiveChannel(channelsLinks.indexOf(link))
         }
+
+        const restoreLastActiveChannel = () => {
+            if (localStorage.getItem('lastChannel') == null) {
+                console.log('first time');
+                console.log(link[localStorage.getItem('lastChannel')]);
+                setSrc(channelsLinks[localStorage.getItem('lastChannel')])
+            }else {
+                console.log('restoring the lastChannel');
+                console.log(localStorage.getItem('lastChannel'));
+                setSrc(channelsLinks[localStorage.getItem('lastChannel')])
+            }
+            localStorage.getItem('lastChannel' )
+        }
+
+
         let channelsCounter = 0;
 
             channelsLinks.forEach((channel) => {
@@ -113,7 +134,7 @@
                 
                 if(channelsLinks.indexOf(channel) < 14) {
                     document.getElementById('arabic-channels-buttons-container').appendChild(button);
-                } else if(channelsLinks.indexOf(channel) > 14 && channelsLinks.indexOf(channel) < 22) {
+                } else if(channelsLinks.indexOf(channel) >= 14 && channelsLinks.indexOf(channel) < 22) {
                     document.getElementById('english-channels-buttons-container').appendChild(button);
                 } else {
                     document.getElementById('dutch-channels-buttons-container').appendChild(button);
@@ -155,6 +176,7 @@
             }
 
             window.addEventListener('keydown', checkkey)
+            restoreLastActiveChannel();
     </script>
   </body>
 </html>
