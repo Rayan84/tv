@@ -45,10 +45,20 @@
             "https://www.youtube.com/embed/5Ekor_LxhqE?rel=0;&autoplay=1&mute=0&loop=1&playlist=5Ekor_LxhqE&controls=0",
             // Alhadath
             "https://www.youtube.com/embed/St61kDYyrvk?rel=0;&autoplay=1&mute=0&loop=1&playlist=St61kDYyrvk&controls=0",
-            // Asharq
+            // Alhiwar            
+            "https://www.youtube.com/embed/5Oe3q1Qqw6I?rel=0;&autoplay=1&mute=0&loop=1&playlist=5Oe3q1Qqw6I&controls=0",
+            // Alkahera
+            "https://www.youtube.com/embed/ZbqyTyS1o0M?rel=0;&autoplay=1&mute=0&loop=1&playlist=ZbqyTyS1o0M&controls=0",
+            // Alsaoodiya
+            "https://www.youtube.com/embed/Zo8pDe-3kiQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=Zo8pDe-3kiQ&controls=0",
+            // Asharq Business
+            "https://www.youtube.com/embed/MYIqDdUwlsg?rel=0;&autoplay=1&mute=0&loop=1&playlist=MYIqDdUwlsg&controls=0",
+            // Asharq News
             "https://www.youtube.com/embed/f6VpkfV7m4Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=f6VpkfV7m4Y&controls=0",
             // BBC
             "https://www.youtube.com/embed/HxI2TxhhS9A?rel=0;&autoplay=1&mute=0&loop=1&playlist=HxI2TxhhS9A&controls=0",
+            // Belqees
+            "https://www.youtube.com/embed/arU2i6HcPrQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=arU2i6HcPrQ&controls=0",
             // DW Arabic
             "https://www.youtube.com/embed/rxOWsyxrl4A?rel=0;&autoplay=1&mute=0&loop=1&playlist=rxOWsyxrl4A&controls=0",
             // CNBC Arabia
@@ -95,7 +105,6 @@
         ];
 
         // template link
-
         // "https://www.youtube.com/embed/?rel=0;&autoplay=1&mute=0&loop=1&playlist=&controls=0",
 
 
@@ -103,10 +112,11 @@
         // Alsharqiya
         // Zagros Arabic
         // UTV
+        // Mukameleen
         // Huna Baghdad
         // One news
 
-        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Asharq', 'BBC', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah', 'Alfaloujah', 'Arirang', 'CGTN', 'DW Englsih', 'France 24 English', 'GB News', 'Sky News English', 'Westminister', 'Unknown2', 'Euronews English', 'CNA', 'Unknown3', 'Unknown4'];
+        const channelsNames = ['Alarabiya', 'Alaraby', 'Alghad', 'Alhadath', 'Alhiwar', 'Alkaheera', 'Alsaoodiya', 'Asharq Business', 'Asharq News', 'BBC', 'Belqees', 'DW Arabic', 'CNBC Arabia', 'France 24 Arabic', 'Orient', 'Sky News Arabic', 'Altaghier', 'Dijlah', 'Alfaloujah', 'Arirang', 'CGTN', 'DW Englsih', 'France 24 English', 'GB News', 'Sky News English', 'Westminister', 'Unknown2', 'Euronews English', 'CNA', 'Unknown3', 'Unknown4'];
         
         const saveLastActiveChannel = (num) => {
             localStorage.setItem('lastChannel', num);
@@ -147,9 +157,9 @@
                 button.classList.add('channel-button');
                 button.appendChild(text);
                 
-                if(channelsLinks.indexOf(channel) < 14) {
+                if(channelsLinks.indexOf(channel) < 20) {
                     document.getElementById('arabic-channels-buttons-container').appendChild(button);
-                } else if(channelsLinks.indexOf(channel) >= 14 && channelsLinks.indexOf(channel) < 200) {
+                } else if(channelsLinks.indexOf(channel) >= 20 && channelsLinks.indexOf(channel) < 200) {
                     document.getElementById('english-channels-buttons-container').appendChild(button);
                 } else {
                     document.getElementById('dutch-channels-buttons-container').appendChild(button);
