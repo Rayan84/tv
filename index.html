@@ -14,17 +14,17 @@
             <button class="hamburger" id="hamburger" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">&#9776;</button>
         </div>
         <div id="groups-container" class="position-absolute groups-container" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
-          <button id="" class="display-block width-100-percent" onmouseover="show('english-channels-buttons-container')" onmouseout="hide('english-channels-buttons-container')">English</button>
           <button id="" class="display-block width-100-percent" onmouseover="show('arabic-channels-buttons-container')" onmouseout="hide('arabic-channels-buttons-container')">Arabic</button>
           <button id="" class="display-block width-100-percent" onmouseover="show('dutch-channels-buttons-container')" onmouseout="hide('dutch-channels-buttons-container')">Dutch</button>
+          <button id="" class="display-block width-100-percent" onmouseover="show('english-channels-buttons-container')" onmouseout="hide('english-channels-buttons-container')">English</button>
           <button id="" class="display-block width-100-percent" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
         </div>
 
         <div id="arabic-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
         </div>
-        <div id="english-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
-        </div>
         <div id="dutch-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
+        </div>
+        <div id="english-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
         </div>
         <div id="iraq-channels-buttons-container" class="position-absolute width-100-percent" onmouseover="show()" onmouseout="hide()">
         </div>
@@ -73,15 +73,15 @@
             "https://www.youtube.com/embed/pgLRedUtGw4?rel=0;&autoplay=1&mute=0&loop=1&playlist=pgLRedUtGw4",
             // yahoo
             // WION
-            "https://www.youtube.com/embed/5F1Eyf5QN3o",
+            "https://www.youtube.com/embed/5F1Eyf5QN3o?rel=0;&autoplay=1&mute=0&loop=1&playlist=5F1Eyf5QN3o",
             // Euro News
-            "https://www.youtube.com/embed/pykpO5kQJ98",
+            "https://www.youtube.com/embed/pykpO5kQJ98?rel=0;&autoplay=1&mute=0&loop=1&playlist=pykpO5kQJ98",
             // CNA
-            "https://www.youtube.com/embed/XWq5kBlakcQ",
+            "https://www.youtube.com/embed/XWq5kBlakcQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=XWq5kBlakcQ",
             // ABC News
-            "https://www.youtube.com/embed/vOTiJkg1voo",
+            "https://www.youtube.com/embed/vOTiJkg1voo?rel=0;&autoplay=1&mute=0&loop=1&playlist=vOTiJkg1voo",
             // Bloomberg
-            "https://www.youtube.com/embed/dp8PhLsUcFE"
+            "https://www.youtube.com/embed/dp8PhLsUcFE?rel=0;&autoplay=1&mute=0&loop=1&playlist=dp8PhLsUcFE"
         ];
 
         // <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yc36ujEIjPc" title="مستجدات الأوضاع في السودان.. تغطية حية لحظة بلحظة" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -113,7 +113,7 @@
                 
                 if(channelsLinks.indexOf(channel) < 14) {
                     document.getElementById('arabic-channels-buttons-container').appendChild(button);
-                } else if(channelsLinks.indexOf(channel) > 14 && channelsLinks.indexOf(channel) > 18) {
+                } else if(channelsLinks.indexOf(channel) > 14 && channelsLinks.indexOf(channel) < 22) {
                     document.getElementById('english-channels-buttons-container').appendChild(button);
                 } else {
                     document.getElementById('dutch-channels-buttons-container').appendChild(button);
