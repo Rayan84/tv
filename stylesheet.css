@@ -65,6 +65,7 @@ button:hover {
 .active-channel {
     font-weight: bolder;
     color: red;
+    background-color: rgb(3, 2, 2, 0.8);
 }
 
 .display-flex {
