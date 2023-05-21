@@ -3,23 +3,68 @@ body {
 }
 
 button {
-  background-color: blue;
   color: white;
   border-radius: 5px;
   margin: 2px;
   padding: 4px 2px;
   font-size: 1.3rem;
   width: 100%;
+  text-align: left;
+  background-color: rgba(106, 175, 175, 0.6);
+  padding-left: 1rem;
+  margin: 2px;
+
 }
 
 button:hover {
     background-color: black;
 }
 
-.hamburger {
-    left: 0;
-    top: 0;
-    width: 1rem;
+#hamburger-container {
+    left: 4%;
+    top: 3%;
+    text-align: center;
+    background-color: blue;
+}
+
+#hamburger {
+    background-color: red;
+    width: 90%;
+    padding-left: 0;
+    text-align: center;
+
+}
+
+.groups-container {
+    width: 10%;
+    left: 5.5%;
+    top: 3%;
+    display: block;
+}
+
+#arabic-channels-buttons-container,
+#iraq-channels-buttons-container,
+#dutch-channels-buttons-container,
+#english-channels-buttons-container {
+    top: 3%;
+    left: 19%;
+    width: 16%;
+    display: block;
+    border-radius: 5px;
+}
+
+#iframe {
+    width: 99vw;
+    height: 99vh;
+}
+
+/* .channel-button {
+    margin: 5px;
+} */
+
+.active-channel {
+    font-weight: bolder;
+    color: red;
 }
 
 .display-flex {
@@ -44,30 +89,3 @@ button:hover {
 .width-100-percent {
     width: 100%;
 }
-
-.groups-container {
-    width: 10%;
-    left: 1.5rem;
-    display: none;
-}
-
-#iframe {
-    width: 99vw;
-    height: 99vh;
-}
-
-#arabic-channels-buttons-container,
-#iraq-channels-buttons-container,
-#dutch-channels-buttons-container,
-#english-channels-buttons-container {
-    top: 0%;
-    left: 10%;
-    width: 16%;
-    display: none;
-}
-
-.active-channel {
-    font-weight: bolder;
-    color: red;
-}
-
