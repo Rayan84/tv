@@ -5,13 +5,13 @@ body {
 button {
   color: white;
   border-radius: 5px;
-  margin: 2px;
+  margin: 0.2rem;
   padding: 4px 2px;
   font-size: 1.3rem;
   width: 100%;
   text-align: left;
   background-color: rgba(106, 175, 175, 0.6);
-  padding-left: 1rem;
+  padding: 0.5rem 1rem;
   margin: 2px;
 
 }
@@ -20,42 +20,43 @@ button:hover {
     background-color: black;
 }
 
-#hamburger-container {
+.menus-container {
     left: 4%;
     top: 3%;
+}
+
+.text-align-center {
     text-align: center;
-    background-color: blue;
 }
 
 #hamburger {
-    background-color: red;
     width: 90%;
-    padding-left: 0;
-    text-align: center;
-
 }
 
 .groups-container {
-    width: 10%;
-    left: 5.5%;
-    top: 3%;
-    display: block;
+    display: none;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.flex-direction-row {
+    flex-direction: row;
 }
 
 #arabic-channels-buttons-container,
 #iraq-channels-buttons-container,
 #dutch-channels-buttons-container,
 #english-channels-buttons-container {
-    top: 3%;
-    left: 19%;
-    width: 16%;
-    display: block;
+    display: none;
     border-radius: 5px;
 }
 
 #iframe {
     width: 99vw;
     height: 99vh;
+    pointer-events: none;
 }
 
 /* .channel-button {
