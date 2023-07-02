@@ -9,7 +9,7 @@
    
 </head>
 <body>
-    <div class="position-relative">
+    <div>
         <div class="position-absolute menus-container display-flex flex-direction-row text-align-center">
             <div id="hamburger-container">
                 <button class="hamburger text-align-center" id="hamburger" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">&#9776;</button>
@@ -20,7 +20,7 @@
                 <button id="" class="display-block width-100-percent" onmouseover="show('english-channels-buttons-container')" onmouseout="hide('english-channels-buttons-container')">English</button>
                 <button id="" class="display-block width-100-percent" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
             </div>
-            <div class="text-align-center">
+            <div class="text-align-center" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
                 <div id="arabic-channels-buttons-container" class="width-100-percent" onmouseover="show('arabic-channels-buttons-container')" onmouseout="hide('arabic-channels-buttons-container')">
                 </div>
                 <div id="dutch-channels-buttons-container" class="width-100-percent" onmouseover="show('dutch-channels-buttons-container')" onmouseout="hide('dutch-channels-buttons-container')">
@@ -41,14 +41,14 @@
 
             // Arabic Group
             // Alarabiya
-            "https://www.dailymotion.com/embed/video/x7z7iel?autoplay=1",
-            "https://www.youtube.com/embed/_rewJPptlBg?rel=0;&autoplay=1&mute=0&loop=1&playlist=_rewJPptlBg&controls=0&nofocus=y",
+            // "https://www.dailymotion.com/embed/video/x7z7iel?autoplay=1",
+            "https://www.youtube.com/embed/S9RRnntuEQw?rel=0;&autoplay=1&mute=0&loop=1&playlist=S9RRnntuEQw&controls=0",
             // Alaraby
-            "https://www.youtube.com/embed/GeYbOcqx_WE?rel=0;&autoplay=1&mute=0&loop=1&playlist=GeYbOcqx_WE&controls=0",
+            "https://www.youtube.com/embed/e2RgSa1Wt5o?rel=0;&autoplay=1&mute=0&loop=1&playlist=e2RgSa1Wt5o&controls=0",
             // Alekhbariya
             "https://www.youtube.com/embed/aDGXdv3M2qo?rel=0;&autoplay=1&mute=0&loop=1&playlist=aDGXdv3M2qo&controls=0",
             // Alghad
-            "https://www.youtube.com/embed/5Ekor_LxhqE?rel=0;&autoplay=1&mute=0&loop=1&playlist=5Ekor_LxhqE&controls=0",
+            "https://www.youtube.com/embed/Vb18uxD70P0?rel=0;&autoplay=1&mute=0&loop=1&playlist=Vb18uxD70P0&controls=0",
             // Alhadath
             "https://www.youtube.com/embed/St61kDYyrvk?rel=0;&autoplay=1&mute=0&loop=1&playlist=St61kDYyrvk&controls=0",
             // Alhiwar            
@@ -59,6 +59,11 @@
             "https://www.youtube.com/embed/ZbqyTyS1o0M?rel=0;&autoplay=1&mute=0&loop=1&playlist=ZbqyTyS1o0M&controls=0",
             // Almagharibiya
             "https://www.youtube.com/embed/eNpye3DxDWs?rel=0;&autoplay=1&mute=0&loop=1&playlist=eNpye3DxDWs&controls=0",
+            // AlMayadeen
+            
+            "https://www.youtube.com/embed/XkUag4Xq7f0?rel=0;&autoplay=1&mute=0&loop=1&playlist=XkUag4Xq7f0&controls=0",
+
+
             // Alsaoodiya
             "https://www.youtube.com/embed/Zo8pDe-3kiQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=Zo8pDe-3kiQ&controls=0",
             // Altaghier
@@ -139,7 +144,7 @@
         // One news
 
         const channelsNames = [
-        'Alarabiya', 'Alaraby', 'Alekhbariya', 'Alghad', 'Alhadath', 'Alhiwar', 'Aljazeera', 'Alkaheera', 'Almagharibiya', 'Alsaoodiya', 'Altaghier', 'Asharq Business', 'Asharq News', 'BBC', 'Belqees', 'DW', 'CNBC Arabia', 'France 24',
+        'Alarabiya', 'Alaraby', 'Alekhbariya', 'Alghad', 'Alhadath', 'Alhiwar', 'Aljazeera', 'Alkaheera', 'Almagharibiya', 'AlMayadeen', 'Alsaoodiya', 'Altaghier', 'Asharq Business', 'Asharq News', 'BBC', 'Belqees', 'DW', 'CNBC Arabia', 'France 24',
          'Orient', 'Sky News', 'Dijlah', 'Alfaloujah',
          'Aljazeera', 'Arirang', 'CGTN', 'CNA', 'DW', 'France 24', 'GB News', 'Sky News', 'Westminister', 'Nat Geo', 'NBC News', 'NBC 2 News', 'News 12', 'Unknown2', 'Euronews', 'Unknown3', 'Unknown4'];
         
@@ -182,7 +187,7 @@
                 button.classList.add('channel-button');
                 button.appendChild(text);
                 
-                if(channelsLinks.indexOf(channel) < 24) {
+                if(channelsLinks.indexOf(channel) < 25) {
                     document.getElementById('arabic-channels-buttons-container').appendChild(button);
                 } else if(channelsLinks.indexOf(channel) >= 24 && channelsLinks.indexOf(channel) < 200) {
                     document.getElementById('english-channels-buttons-container').appendChild(button);
@@ -194,11 +199,10 @@
             });
 
             const show = (item) => {
-                document.getElementById(item).style.display = 'block';
+                document.getElementById(item).style.display = 'flex';
             }
 
             const hide = (item) => {
-                // console.log('hide');
                 document.getElementById(item).style.display = 'none';
             }  
 
