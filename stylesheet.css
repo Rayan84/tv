@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    padding: 0;
+    background-color: black;
 }
 
 button {
@@ -58,10 +60,6 @@ button:hover {
     height: 99vh;
     pointer-events: none;
 }
-
-/* .channel-button {
-    margin: 5px;
-} */
 
 .active-channel {
     font-weight: bolder;
