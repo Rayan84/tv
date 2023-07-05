@@ -15,10 +15,10 @@
                 <button class="hamburger text-align-center" id="hamburger" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">&#9776;</button>
             </div>
             <div id="groups-container" class="groups-container" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
-                <button id="" class="display-block width-100-percent" onmouseover="show('arabic-channels-buttons-container')" onmouseout="hide('arabic-channels-buttons-container')">Arabic</button>
-                <button id="" class="display-block width-100-percent" onmouseover="show('dutch-channels-buttons-container')" onmouseout="hide('dutch-channels-buttons-container')">Dutch</button>
-                <button id="" class="display-block width-100-percent" onmouseover="show('english-channels-buttons-container')" onmouseout="hide('english-channels-buttons-container')">English</button>
-                <button id="" class="display-block width-100-percent" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
+                <button id="" class="display-block width-100-percent group-button" onmouseover="show('arabic-channels-buttons-container')" onmouseout="hide('arabic-channels-buttons-container')">Arabic</button>
+                <button id="" class="display-block width-100-percent group-button" onmouseover="show('dutch-channels-buttons-container')" onmouseout="hide('dutch-channels-buttons-container')">Dutch</button>
+                <button id="" class="display-block width-100-percent group-button" onmouseover="show('english-channels-buttons-container')" onmouseout="hide('english-channels-buttons-container')">English</button>
+                <button id="" class="display-block width-100-percent group-button" onmouseover="show('iraq')" onmouseout="hide('iraq')">Iraqi</button>
             </div>
             <div class="text-align-center" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
                 <div id="arabic-channels-buttons-container" class="width-100-percent" onmouseover="show('arabic-channels-buttons-container')" onmouseout="hide('arabic-channels-buttons-container')">
@@ -154,9 +154,9 @@
         }
 
         const setSrc = (link) => {
-            console.log('Changing the channel...');
             document.getElementById('iframe').setAttribute('src', link);
             changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
+            changeActiveGroupButtonStyle(channelsLinks.indexOf(link));
             saveLastActiveChannel(channelsLinks.indexOf(link))
         }
 
@@ -225,6 +225,18 @@
                     channel.classList.remove('active-channel');
                 })
                 channelButtons[active].classList.add('active-channel');
+            }
+
+            function changeActiveGroupButtonStyle(active) {
+                let groupButton = document.querySelectorAll('.group-button');
+                document.querySelectorAll('.active-group').forEach((group) => {
+                    group.classList.remove(active-group);
+                })
+                if (active <= 24) {
+                    groupButton[0].classList.add('active-group')
+                } else {
+                    groupButton[2].classList.add('active-group')
+                }
             }
 
             window.addEventListener('keydown', checkkey)
