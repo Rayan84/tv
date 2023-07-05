@@ -229,8 +229,9 @@
 
             function changeActiveGroupButtonStyle(active) {
                 let groupButton = document.querySelectorAll('.group-button');
+                console.log(groupButton.length);
                 document.querySelectorAll('.active-group').forEach((group) => {
-                    group.classList.remove(active-group);
+                    group.classList.remove('active-group');
                 })
                 if (active <= 24) {
                     groupButton[0].classList.add('active-group')
