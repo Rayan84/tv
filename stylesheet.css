@@ -20,7 +20,8 @@ button {
 }
 
 button:hover {
-    background-color: black;
+    background-color: orange;
+    color: white;
 }
 
 .menus-container {
@@ -49,6 +50,7 @@ button:hover {
     float: right;
     opacity: 0;
     padding-right: 0;
+    padding-left: 1rem;
 }
 
 .display-flex {
@@ -78,9 +80,9 @@ button:hover {
 
 .active-channel,
 .active-group {
-    font-weight: bolder;
-    color: red;
-    background-color: rgb(3, 2, 2, 0.8);
+    color: orange;
+    background-color: black;
+    opacity: 0.8;
 }
 
 .display-flex {
