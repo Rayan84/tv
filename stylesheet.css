@@ -41,6 +41,16 @@ button:hover {
     flex-direction: column;
 }
 
+.group-button:hover span {
+    opacity: 1;
+}
+
+.extend-arrow {
+    float: right;
+    opacity: 0;
+    padding-right: 0;
+}
+
 .display-flex {
     display: flex;
 }
