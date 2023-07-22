@@ -161,10 +161,13 @@
         }
 
         const setSrc = (link) => {
-            document.getElementById('iframe').setAttribute('src', link);
-            changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
-            changeActiveGroupButtonStyle(channelsLinks.indexOf(link));
-            saveLastActiveChannel(channelsLinks.indexOf(link))
+            let iframe = document.getElementById('iframe');
+            if ( iframe.src !== link) {
+                iframe.setAttribute('src', link);
+                changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
+                changeActiveGroupButtonStyle(channelsLinks.indexOf(link));
+                saveLastActiveChannel(channelsLinks.indexOf(link))   
+            }            
         }
 
         const restoreLastActiveChannel = () => {
@@ -211,7 +214,7 @@
 
             const hide = (item) => {
                 document.getElementById(item).style.display = 'none';
-            }  
+            }
 
             // Add next and previous buttons event listener
             function checkkey(event) {
