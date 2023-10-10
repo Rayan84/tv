@@ -10,26 +10,30 @@
 </head>
 <body>
     <div>
-        <div class="position-absolute menus-container display-flex flex-direction-row text-align-center">
+        <div class="position-absolute menus-container display-flex flex-direction-row text-align-center" onmouseleave="hide('groups-and-channels-container'), resetPosition()">
             <div id="hamburger-container">
                 <button class="hamburger text-align-center" id="hamburger" onmouseover="startAnimation(1)">&#9776;</button>
             </div>
-            <div id="groups-container" class="groups-container">
-                <button id="" class="display-block width-100-percent group-button">Arabic<span class="extend-arrow">&#8250;</span></span></button>
-                <button id="" class="display-block width-100-percent group-button">Dutch<span class="extend-arrow">&#8250;</span></span></button>
-                <button id="" class="display-block width-100-percent group-button">English<span class="extend-arrow">&#8250;</span></span></button>
-                <button id="" class="display-block width-100-percent group-button">Iraqi<span class="extend-arrow">&#8250;</span></button>
+            <div id="groups-and-channels-container" class="position-absolute display-none">
+                <div id="groups-container" class="groups-container">
+                    <button id="" class="width-100-percent group-button">Arabic<span class="extend-arrow">&#8250;</span></span></button>
+                    <button id="" class="width-100-percent group-button">Dutch<span class="extend-arrow">&#8250;</span></span></button>
+                    <button id="" class="width-100-percent group-button">English<span class="extend-arrow">&#8250;</span></span></button>
+                    <button id="" class="width-100-percent group-button">Iraqi<span class="extend-arrow">&#8250;</span></button>
+                </div>
+                <div class="text-align-center">
+                    <div id="arabic-channels-buttons-container" class="width-100-percent">
+                    </div>
+                    <div id="dutch-channels-buttons-container" class="width-100-percent">
+                    </div>
+                    <div id="english-channels-buttons-container" class="width-100-percent">
+                    </div>
+                    <div id="iraq-channels-buttons-container" class="width-100-percent">
+                    </div>
+                </div>
+
             </div>
-            <div class="text-align-center" onmouseover="show('groups-container')" onmouseout="hide('groups-container')">
-                <div id="arabic-channels-buttons-container" class="width-100-percent" onmouseout="hide('arabic-channels-buttons-container')">
-                </div>
-                <div id="dutch-channels-buttons-container" class="width-100-percent">
-                </div>
-                <div id="english-channels-buttons-container" class="width-100-percent">
-                </div>
-                <div id="iraq-channels-buttons-container" class="width-100-percent">
-                </div>
-            </div>
+            
         </div>
     </div>
     <div>
@@ -39,7 +43,7 @@
     <script>
         const channelsLinks = [
 
-            // Arabic Group
+                                                  // Arabic
             // Alarabiya
             // "https://www.dailymotion.com/embed/video/x7z7iel?autoplay=1",
             "https://www.youtube.com/embed/-hCJP9aI-HI?rel=0;&autoplay=1&mute=0&loop=1&playlist=-hCJP9aI-HI&controls=0",
@@ -87,13 +91,16 @@
             "https://ghaasiflu.online/Dijlah/embed.html",
             // France 24 Arabic
             "https://www.youtube.com/embed/VuYzy8IuT0Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=VuYzy8IuT0Y&controls=0",
+            // KSA Sport
+            "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4&controls=0",        
             // Orient
             "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4&controls=0",
             // Sky News Arabic
             "https://www.youtube.com/embed/me1fBxx9wJY?rel=0;&autoplay=1&mute=0&loop=1&playlist=me1fBxx9wJY&controls=0",
-            // Dutch
+                                                       // Dutch
             // Gelderland
            "https://omroepgelderland.bbvms.com/p/default/c/3878397.html?inheritDimensions=true",
+                                                       // English
                         
             // Aljazeera
             "https://www.youtube.com/embed/gCNeDWCI0vo?rel=0;&autoplay=1&mute=0&loop=1&playlist=gCNeDWCI0vo&controls=0",
@@ -122,7 +129,7 @@
             // Nat Geo
             "https://www.youtube.com/embed/306xLRnW3Cc?rel=0;&autoplay=1&mute=0&loop=1&playlist=306xLRnW3Cc&controls=0",
             // Nat Geo Wild
-            "https://www.youtube.com/embed/6zGV59Ldp3s?rel=0;&autoplay=1&mute=0&loop=1&playlist=6zGV59Ldp3s&controls=0",
+            "https://www.youtube.com/embed/XZ7BWbmvi94?rel=0;&autoplay=1&mute=0&loop=1&playlist=XZ7BWbmvi94&controls=0",
             // NBC
             "https://www.youtube.com/embed/URQtYtS7qrI?rel=0;&autoplay=1&mute=0&loop=1&playlist=URQtYtS7qrI&controls=0",
             // NBC 2
@@ -191,7 +198,6 @@
         let channelsCounter = 0;
 
             channelsLinks.forEach((channel) => {
-                console.log(channel);
                 let button = document.createElement('BUTTON');
                 let text = document.createTextNode(channelsNames[channelsCounter]);
                 button.onclick = function () {
@@ -253,54 +259,53 @@
             }
 
             let initial = 1;
-            function startAnimation(val) {
-
-                let hamburger = document.getElementById('hamburger');
-                let groupsContainer = document.getElementById('groups-container');
-                // groupsContainer.style.position = 'absolute';
-
-                // document.getElementById('hamburger').removeEventListener('mouseover', startAnimation, false);
-                // groupsContainer.removeEventListener('mouseover');
-
-
-                if(val == 1) {
-                    console.log('val = 1');
-                let groupButton = document.querySelectorAll('.group-button');
-                groupsContainer.style.display = 'flex';
-                const interva = setInterval(animation, 5);             
-                function animation() {
-                    console.log('animation function called...');
-                    if (groupsContainer.style.left == '55px') {
-                        clearInterval(interva);
-                        initial = 1;
-                        console.log('clearing...');
-                        groupButton[0].addEventListener('mouseover', function() { show('arabic-channels-buttons-container')});
-                        groupsContainer.addEventListener('mouseover', function(){
-                            groupsContainer.style.display = 'block';
-                        });
-                        groupsContainer.addEventListener('mouseout', function(){
-                            groupsContainer.style.display = 'none';
-                        });
-                        // groupsContainer.style.position = 'static';
-                        document.getElementById('hamburger').addEventListener('mouseout', function(){ groupsContainer.style.display = 'none'});
-
-                    } else {
-                        document.getElementById('groups-container').style.left = initial++ +'px';
-                        console.log(groupsContainer.style.left);
-                    }
-                }             
-            }else {
-                console.log('val = 0');
-                    
-                    groupsContainer.style.left = 0;
-                    groupsContainer.style.display = 'none';
-                    initial = 0;
+            function showArabicGroup() {
+                show('arabic-channels-buttons-container')
 
             }
+
+            function resetPosition() {
+                hide('arabic-channels-buttons-container');
+                let groupButtons = document.querySelectorAll('.group-button');
+
+                let groupsAndChannelsContainer = document.getElementById('groups-and-channels-container');
+
+
+                console.log('mouseout2');
+                groupsAndChannelsContainer.style.left = initial + 'px';
+                groupButtons[0].removeEventListener('mouseover', showArabicGroup)
+                
+
+            }
+
             
+            function startAnimation(val) {
+                console.log('started animation');
+                 let hamburger = document.getElementById('hamburger');
+                 let groupsContainer = document.getElementById('groups-container');
+                 let groupsAndChannelsContainer = document.getElementById('groups-and-channels-container');
+                 let groupButtons = document.querySelectorAll('.group-button');
+                 const interva = setInterval(animation, 10);
 
 
+                 groupsAndChannelsContainer.style.display = 'flex';
+
+                 function animation() {
+                    if (groupsAndChannelsContainer.style.left == '58px') {
+                        console.log('if is true');
+                        groupButtons[0].addEventListener('mouseover', showArabicGroup);                        
+                        console.log('55 reached!');
+                        clearInterval(interva);
+                        initial = 0;
+                        // groupsAndChannelsContainer.addEventListener('mouseOut', (event) => { event.target.style.display = "none"});
+                        
+                    } else{
+                        console.log('else is true');
+                        groupsAndChannelsContainer.style.left = initial++ + 'px';
+                    }
+                 }
             }
+
 
 
 

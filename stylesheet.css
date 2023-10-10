@@ -29,7 +29,6 @@ button:hover {
 }
 
 #hamburger {
-    width: 90%;
     z-index: 50;
 }
 
@@ -39,10 +38,12 @@ button:hover {
 }
 
 .groups-container {
-    position: absolute;
-    display: none;
     flex-direction: column;
     z-index: 2;
+}
+
+.group-button {
+    display: flex;
 }
 
 .group-button:hover span {
@@ -93,6 +94,10 @@ button:hover {
 }
 .display-block {
     display: block;
+}
+
+.display-none {
+    display: none;
 }
 
 .position-absolute {
