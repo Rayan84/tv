@@ -1,330 +1,433 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./stylesheet.css">
-   
-</head>
-<body>
+    <link rel="stylesheet" href="./stylesheet.css" />
+    <script src="https://www.youtube.com/iframe_api"></script>
+  </head>
+  <body>
     <div>
-        <div class="position-absolute menus-container display-flex flex-direction-row text-align-center" onmouseleave="hide('groups-and-channels-container'), resetPosition()">
-            <div id="hamburger-container">
-                <button class="hamburger text-align-center" id="hamburger" onmouseover="startAnimation(1)">&#9776;</button>
-            </div>
-            <div id="groups-and-channels-container" class="position-absolute display-none">
-                <div id="groups-container" class="groups-container">
-                    <button id="" class="width-100-percent group-button">Arabic<span class="extend-arrow">&#8250;</span></span></button>
-                    <button id="" class="width-100-percent group-button">Dutch<span class="extend-arrow">&#8250;</span></span></button>
-                    <button id="" class="width-100-percent group-button">English<span class="extend-arrow">&#8250;</span></span></button>
-                    <button id="" class="width-100-percent group-button">Iraqi<span class="extend-arrow">&#8250;</span></button>
-                </div>
-                <div class="text-align-center">
-                    <div id="arabic-channels-buttons-container" class="width-100-percent">
-                    </div>
-                    <div id="dutch-channels-buttons-container" class="width-100-percent">
-                    </div>
-                    <div id="english-channels-buttons-container" class="width-100-percent">
-                    </div>
-                    <div id="iraq-channels-buttons-container" class="width-100-percent">
-                    </div>
-                </div>
-
-            </div>
-            
+      <div
+        class="position-absolute menus-container display-flex flex-direction-row text-align-center"
+        onmouseleave="hide('groups-and-channels-container'), resetPosition()"
+      >
+        <div id="hamburger-container">
+          <button
+            class="hamburger text-align-center"
+            id="hamburger"
+            onmouseover="startAnimation(1)"
+          >
+            &#9776;
+          </button>
         </div>
+        <div
+          id="groups-and-channels-container"
+          class="position-absolute display-none"
+        >
+          <div id="groups-container" class="groups-container">
+            <button id="" class="width-100-percent group-button">
+              Arabic<span class="extend-arrow">&#8250;</span>
+            </button>
+            <button id="" class="width-100-percent group-button">
+              Dutch<span class="extend-arrow">&#8250;</span>
+            </button>
+            <button id="" class="width-100-percent group-button">
+              English<span class="extend-arrow">&#8250;</span>
+            </button>
+            <button id="" class="width-100-percent group-button">
+              Iraqi<span class="extend-arrow">&#8250;</span>
+            </button>
+          </div>
+          <div class="text-align-center">
+            <div
+              id="arabic-channels-buttons-container"
+              class="width-100-percent"
+            ></div>
+            <div
+              id="dutch-channels-buttons-container"
+              class="width-100-percent"
+            ></div>
+            <div
+              id="english-channels-buttons-container"
+              class="width-100-percent"
+            ></div>
+            <div
+              id="iraq-channels-buttons-container"
+              class="width-100-percent"
+            ></div>
+          </div>
+        </div>
+      </div>
     </div>
     <div>
-        <iframe id="iframe" class="border-none" src="" allow="autoplay" frameborder="0"></iframe>
+      <iframe
+        id="iframe"
+        autoplay
+        class="border-none"
+        src=""
+        allow="autoplay"
+        frameborder="0"
+      ></iframe>
     </div>
 
     <script>
-        const channelsLinks = [
+      const channelsLinks = [
+        // Arabic
+        // Alarabiya
+        // "https://www.dailymotion.com/embed/video/x7z7iel?autoplay=1",
+        "https://www.youtube.com/embed/-hCJP9aI-HI?rel=0;&autoplay=1&mute=0&loop=1&playlist=-hCJP9aI-HI&controls=0",
+        // Alarabiya Alsaoodiya
+        "https://www.youtube.com/embed/DoKG6N5YmI4?rel=0;&autoplay=1&mute=0&loop=1&playlist=DoKG6N5YmI4&controls=0",
+        // Alaraby
+        "https://www.youtube.com/embed/e2RgSa1Wt5o?rel=0;&autoplay=1&mute=0&loop=1&playlist=e2RgSa1Wt5o&controls=0",
+        // Alekhbariya
+        "https://www.youtube.com/embed/GZ-5BO0QLQw?rel=0;&autoplay=1&mute=0&loop=1&playlist=GZ-5BO0QLQw&controls=0",
+        // Alfallujah
+        "https://vimeo.com/event/885461/embed",
+        // Alghad
+        "https://www.youtube.com/embed/RTO99XQE1Ow?rel=0;&autoplay=1&mute=0&loop=1&playlist=RTO99XQE1Ow&controls=0",
+        // Alhadath
+        "https://www.youtube.com/embed/MW52zOYZCQc?rel=0;&autoplay=1&mute=0&loop=1&playlist=MW52zOYZCQc&controls=0",
+        // Alhiwar
+        "https://www.youtube.com/embed/Y_uOVqYX0Tw?rel=0;&autoplay=1&mute=0&loop=1&playlist=Y_uOVqYX0Tw&controls=0",
+        // Alhurra
+        "https://www.youtube.com/embed/vDAZVdMYBDw?rel=0;&autoplay=1&mute=0&loop=1&playlist=vDAZVdMYBDw&controls=0",
+        // Al Jadeed KSA
+        "https://www.youtube.com/embed/45mAieHsMyM?rel=0;&autoplay=1&mute=0&loop=1&playlist=45mAieHsMyM&controls=0",
+        // Aljazeera
+        "https://www.youtube.com/embed/bNyUyrR0PHo?rel=0;&autoplay=1&mute=0&loop=1&playlist=bNyUyrR0PHo&controls=0",
+        // Almashhad
+        "https://players.brightcove.net/6313884884001/default_default/index.html?videoId=6329837144112",
+        // Alqahera
+        "https://www.youtube.com/embed/YyzWpeDTpy0?rel=0;&autoplay=1&mute=0&loop=1&playlist=YyzWpeDTpy0&controls=0",
+        // Alqahera Wlnas
+        "https://www.youtube.com/embed/nEOYWTKQsdg?rel=0;&autoplay=1&mute=0&loop=1&playlist=nEOYWTKQsdg&controls=0",
+        // Almagharibiya
+        "https://www.youtube.com/embed/kbfMIjdayak?rel=0;&autoplay=1&mute=0&loop=1&playlist=kbfMIjdayak&controls=0",
+        // AlMayadeen
+        "https://www.youtube.com/embed/43w0grKCeMA?rel=0;&autoplay=1&mute=0&loop=1&playlist=43w0grKCeMA&controls=0",
+        // AlRasheed
+        "https://media1.livaat.com/AL-RASHEED-HD/embed.html",
+        // Alsaoodiya
+        "https://www.youtube.com/embed/3md8p-ehq2E?rel=0;&autoplay=1&mute=0&loop=1&playlist=3md8p-ehq2E&controls=0",
+        // Altaghier
+        "https://player.castr.com/live_d33349a0962a11ed907dd9e556777b63",
+        // Asharq Business
+        "https://www.youtube.com/embed/MYIqDdUwlsg?rel=0;&autoplay=1&mute=0&loop=1&playlist=MYIqDdUwlsg&controls=0",
+        // Asharq News
+        "https://www.youtube.com/embed/f6VpkfV7m4Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=f6VpkfV7m4Y&controls=0",
+        // BBC
+        "https://www.youtube.com/embed/HxI2TxhhS9A?rel=0;&autoplay=1&mute=0&loop=1&playlist=HxI2TxhhS9A&controls=0",
+        // Belqees
+        "https://www.youtube.com/embed/RD2u664ZKCE?rel=0;&autoplay=1&mute=0&loop=1&playlist=RD2u664ZKCE&controls=0",
+        // CNBC Arabia
+        "https://www.dailymotion.com/embed/video/x7zjeht?autoplay=1&controls=0",
+        // DW Arabic
+        "https://www.youtube.com/embed/BKXyGQtyECo?rel=0;&autoplay=1&mute=0&loop=1&playlist=BKXyGQtyECo&controls=0",
+        // Dijlah
+        "https://ghaasiflu.online/Dijlah/embed.html",
+        // France 24 Arabic
+        "https://www.youtube.com/embed/VuYzy8IuT0Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=VuYzy8IuT0Y&controls=0",
+        // KSA Sport
+        // iraq 24
+        "https://ghaasiflu.online/Iraq24/embed.html?dvr=true",
+        // Orient
+        "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4&controls=0",
+        // Sky News Arabic
+        "https://www.youtube.com/embed/me1fBxx9wJY?rel=0;&autoplay=1&mute=0&loop=1&playlist=me1fBxx9wJY&controls=0",
+        // Dutch
+        // Gelderland
+        "https://omroepgelderland.bbvms.com/p/default/c/3878397.html?inheritDimensions=true",
+                                          // English
+        // Aljazeera
+        "https://www.youtube.com/embed/gCNeDWCI0vo?rel=0;&autoplay=1&mute=0&loop=1&playlist=gCNeDWCI0vo&controls=0",
+        // Arirang
+        "https://www.youtube.com/embed/APlvA2wtdKk?rel=0;&autoplay=1&mute=0&loop=1&playlist=APlvA2wtdKk&controls=0",
+        // CGTN
+        "https://www.youtube.com/embed/gYUfs9RX95s?rel=0;&autoplay=1&mute=0&loop=1&playlist=gYUfs9RX95s&controls=0",
+        // CNA
+        "https://www.youtube.com/embed/XWq5kBlakcQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=XWq5kBlakcQ",
+        // DW English
+        "https://www.youtube.com/embed/pqabxBKzZ6M?rel=0;&autoplay=1&mute=0&loop=1&playlist=pqabxBKzZ6M&controls=0",
+        // Euro News
+        "https://www.youtube.com/embed/pykpO5kQJ98?rel=0;&autoplay=1&mute=0&loop=1&playlist=pykpO5kQJ98&controls=0",
+        // Fox Now
+        "https://www.youtube.com/embed/qoytj8mNq7s?rel=0;&autoplay=1&mute=0&loop=1&playlist=qoytj8mNq7s&controls=0",
+        // France 24 English
+        "https://www.youtube.com/embed/h3MuIUNCCzI?rel=0;&autoplay=1&mute=0&loop=1&playlist=h3MuIUNCCzI&controls=0",
+        // GB News
+        "https://www.youtube.com/embed/8WX6YL9JnLw?rel=0;&autoplay=1&mute=0&loop=1&playlist=8WX6YL9JnLw&controls=0",
+        // i24 English
+        "https://www.youtube.com/embed/ngf4TqAwDEE?rel=0;&autoplay=1&mute=0&loop=1&playlist=ngf4TqAwDEE&controls=0",
+        // India Today
+        "https://feeds.intoday.in/livetv/ver-3-0/?id=livetv-it&aud_togle=1&autostart=1&t_src=live_tv_page&mute=0&t_med=web&utm_medium=web&dimlight=1&utm_source=live_tv_page&v=1.32",
+        // Sky News English
+        "https://www.youtube.com/embed/9Auq9mYxFEE?rel=0;&autoplay=1&mute=0&loop=1&playlist=9Auq9mYxFEE&controls=0",
+        // TRT
 
-                                                  // Arabic
-            // Alarabiya
-            // "https://www.dailymotion.com/embed/video/x7z7iel?autoplay=1",
-            "https://www.youtube.com/embed/-hCJP9aI-HI?rel=0;&autoplay=1&mute=0&loop=1&playlist=-hCJP9aI-HI&controls=0",
-            // Alaraby
-            "https://www.youtube.com/embed/e2RgSa1Wt5o?rel=0;&autoplay=1&mute=0&loop=1&playlist=e2RgSa1Wt5o&controls=0",
-            // Alekhbariya
-            "https://www.youtube.com/embed/GZ-5BO0QLQw?rel=0;&autoplay=1&mute=0&loop=1&playlist=GZ-5BO0QLQw&controls=0",
-            // Alfallujah
-            "https://vimeo.com/event/885461/embed",
-            // Alghad
-            "https://www.youtube.com/embed/RTO99XQE1Ow?rel=0;&autoplay=1&mute=0&loop=1&playlist=RTO99XQE1Ow&controls=0",
-            // Alhadath
-            "https://www.youtube.com/embed/MW52zOYZCQc?rel=0;&autoplay=1&mute=0&loop=1&playlist=MW52zOYZCQc&controls=0",
-            // Alhiwar            
-            "https://www.youtube.com/embed/Y_uOVqYX0Tw?rel=0;&autoplay=1&mute=0&loop=1&playlist=Y_uOVqYX0Tw&controls=0",
-            // Alhurra
-            "https://www.youtube.com/embed/vDAZVdMYBDw?rel=0;&autoplay=1&mute=0&loop=1&playlist=vDAZVdMYBDw&controls=0",
-            // Al Jadeed KSA
-            "https://www.youtube.com/embed/45mAieHsMyM?rel=0;&autoplay=1&mute=0&loop=1&playlist=45mAieHsMyM&controls=0",
+        "https://www.youtube.com/embed/5VF4aor94gw?rel=0;&autoplay=1&mute=0&loop=1&playlist=5VF4aor94gw&controls=0",
+        // LBC
+        "https://www.youtube.com/embed/pgLRedUtGw4?rel=0;&autoplay=1&mute=0&loop=1&playlist=pgLRedUtGw4",
+        // Nat Geo
+        "https://www.youtube.com/embed/gsA3-3_Cl8s?rel=0;&autoplay=1&mute=0&loop=1&playlist=gsA3-3_Cl8s&controls=0",
+        // Nat Geo Wild
+        "https://www.youtube.com/embed/lFPG2B7hJs0?rel=0;&autoplay=1&mute=0&loop=1&playlist=lFPG2B7hJs0&controls=0",
+        // NBC
+        "https://www.youtube.com/embed/URQtYtS7qrI?rel=0;&autoplay=1&mute=0&loop=1&playlist=URQtYtS7qrI&controls=0",
+        // NBC 2
+        "https://www.youtube.com/embed/MJB6CUxvZcU?rel=0;&autoplay=1&mute=0&loop=1&playlist=MJB6CUxvZcU&controls=0",
+        // News 12
+        "https://www.youtube.com/embed/fHvhp7SK0z4?rel=0;&autoplay=1&mute=0&loop=1&playlist=fHvhp7SK0z4&controls=0",
+        // yahoo
+        // WION
+        "https://www.youtube.com/embed/5F1Eyf5QN3o?rel=0;&autoplay=1&mute=0&loop=1&playlist=5F1Eyf5QN3o&controls=0",
+        // ABC News
+        "https://abcnews.go.com/video/embed?id=abc_live11&autoplay=1&rel=0&loop=1;",
+        // Bloomberg
+        "https://www.youtube.com/embed/dp8PhLsUcFE?rel=0;&autoplay=1&mute=0&loop=1&playlist=dp8PhLsUcFE&controls=0",
+        // ABC
+        "https://www.youtube.com/embed/w_Ma8oQLmSM?rel=0;&autoplay=1&mute=0&loop=1&playlist=w_Ma8oQLmSM&controls=0",
+      ];
 
-            // Aljazeera
-            "https://www.youtube.com/embed/bNyUyrR0PHo?rel=0;&autoplay=1&mute=0&loop=1&playlist=bNyUyrR0PHo&controls=0",
-            // Almashhad
-            "https://players.brightcove.net/6313884884001/default_default/index.html?videoId=6329837144112",
-            // Alqahera
-            "https://www.youtube.com/embed/YyzWpeDTpy0?rel=0;&autoplay=1&mute=0&loop=1&playlist=YyzWpeDTpy0&controls=0",
-            // Alqahera Wlnas
-            "https://www.youtube.com/embed/nEOYWTKQsdg?rel=0;&autoplay=1&mute=0&loop=1&playlist=nEOYWTKQsdg&controls=0",
-            // Almagharibiya
-            "https://www.youtube.com/embed/kbfMIjdayak?rel=0;&autoplay=1&mute=0&loop=1&playlist=kbfMIjdayak&controls=0",
-            // AlMayadeen
-            "https://www.youtube.com/embed/43w0grKCeMA?rel=0;&autoplay=1&mute=0&loop=1&playlist=43w0grKCeMA&controls=0",
-            // Alsaoodiya
-            "https://www.youtube.com/embed/3md8p-ehq2E?rel=0;&autoplay=1&mute=0&loop=1&playlist=3md8p-ehq2E&controls=0",
-            // Altaghier
-            "https://player.castr.com/live_d33349a0962a11ed907dd9e556777b63",
-            // Asharq Business
-            "https://www.youtube.com/embed/MYIqDdUwlsg?rel=0;&autoplay=1&mute=0&loop=1&playlist=MYIqDdUwlsg&controls=0",
-            // Asharq News
-            "https://www.youtube.com/embed/f6VpkfV7m4Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=f6VpkfV7m4Y&controls=0",
-            // BBC
-            "https://www.youtube.com/embed/HxI2TxhhS9A?rel=0;&autoplay=1&mute=0&loop=1&playlist=HxI2TxhhS9A&controls=0",
-            // Belqees
-            "https://www.youtube.com/embed/RD2u664ZKCE?rel=0;&autoplay=1&mute=0&loop=1&playlist=RD2u664ZKCE&controls=0",
-             // CNBC Arabia
-            "https://www.dailymotion.com/embed/video/x7zjeht?autoplay=1&controls=0",
-            // DW Arabic
-            "https://www.youtube.com/embed/BKXyGQtyECo?rel=0;&autoplay=1&mute=0&loop=1&playlist=BKXyGQtyECo&controls=0",
-            // Dijlah
-            "https://ghaasiflu.online/Dijlah/embed.html",
-            // France 24 Arabic
-            "https://www.youtube.com/embed/VuYzy8IuT0Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=VuYzy8IuT0Y&controls=0",
-            // KSA Sport
-            // iraq 24
-            'https://ghaasiflu.online/Iraq24/embed.html?dvr=true',
-            // Orient
-            "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4&controls=0",
-            // Sky News Arabic
-            "https://www.youtube.com/embed/me1fBxx9wJY?rel=0;&autoplay=1&mute=0&loop=1&playlist=me1fBxx9wJY&controls=0",
-                                                       // Dutch
-            // Gelderland
-           "https://omroepgelderland.bbvms.com/p/default/c/3878397.html?inheritDimensions=true",
-                                                       // English
-                        
-            // Aljazeera
-            "https://www.youtube.com/embed/gCNeDWCI0vo?rel=0;&autoplay=1&mute=0&loop=1&playlist=gCNeDWCI0vo&controls=0",
-            // Arirang
-            "https://www.youtube.com/embed/APlvA2wtdKk?rel=0;&autoplay=1&mute=0&loop=1&playlist=APlvA2wtdKk&controls=0",
-            // CGTN
-            "https://www.youtube.com/embed/gYUfs9RX95s?rel=0;&autoplay=1&mute=0&loop=1&playlist=gYUfs9RX95s&controls=0",
-             // CNA
-            "https://www.youtube.com/embed/XWq5kBlakcQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=XWq5kBlakcQ",
-            // DW English
-            "https://www.youtube.com/embed/pqabxBKzZ6M?rel=0;&autoplay=1&mute=0&loop=1&playlist=pqabxBKzZ6M&controls=0",
-            // Euro News
-            "https://www.youtube.com/embed/pykpO5kQJ98?rel=0;&autoplay=1&mute=0&loop=1&playlist=pykpO5kQJ98&controls=0",
-            // France 24 English
-            "https://www.youtube.com/embed/h3MuIUNCCzI?rel=0;&autoplay=1&mute=0&loop=1&playlist=h3MuIUNCCzI&controls=0",
-            // GB News
-            "https://www.youtube.com/embed/8WX6YL9JnLw?rel=0;&autoplay=1&mute=0&loop=1&playlist=8WX6YL9JnLw&controls=0",
-            // i24 English
-            
-            "https://www.youtube.com/embed/RKc9ESIEMpw?rel=0;&autoplay=1&mute=0&loop=1&playlist=RKc9ESIEMpw&controls=0",
-            // Sky News English
-            "https://www.youtube.com/embed/9Auq9mYxFEE?rel=0;&autoplay=1&mute=0&loop=1&playlist=9Auq9mYxFEE&controls=0",
-            // TRT
-            
-            "https://www.youtube.com/embed/5VF4aor94gw?rel=0;&autoplay=1&mute=0&loop=1&playlist=5VF4aor94gw&controls=0",
-            // LBC
-            "https://www.youtube.com/embed/pgLRedUtGw4?rel=0;&autoplay=1&mute=0&loop=1&playlist=pgLRedUtGw4",
-            // Nat Geo
-            "https://www.youtube.com/embed/gsA3-3_Cl8s?rel=0;&autoplay=1&mute=0&loop=1&playlist=gsA3-3_Cl8s&controls=0",
-            // Nat Geo Wild
-            "https://www.youtube.com/embed/lFPG2B7hJs0?rel=0;&autoplay=1&mute=0&loop=1&playlist=lFPG2B7hJs0&controls=0",
-            // NBC
-            "https://www.youtube.com/embed/URQtYtS7qrI?rel=0;&autoplay=1&mute=0&loop=1&playlist=URQtYtS7qrI&controls=0",
-            // NBC 2
-            "https://www.youtube.com/embed/MJB6CUxvZcU?rel=0;&autoplay=1&mute=0&loop=1&playlist=MJB6CUxvZcU&controls=0",
-            // News 12
-            "https://www.youtube.com/embed/fHvhp7SK0z4?rel=0;&autoplay=1&mute=0&loop=1&playlist=fHvhp7SK0z4&controls=0",
-            // yahoo
-            // WION
-            "https://www.youtube.com/embed/5F1Eyf5QN3o?rel=0;&autoplay=1&mute=0&loop=1&playlist=5F1Eyf5QN3o&controls=0",
-            // ABC News
-            "https://abcnews.go.com/video/embed?id=abc_live11&autoplay=1&rel=0&loop=1;",
-            // Bloomberg
-            "https://www.youtube.com/embed/dp8PhLsUcFE?rel=0;&autoplay=1&mute=0&loop=1&playlist=dp8PhLsUcFE&controls=0",
-            // ABC 
-            "https://www.youtube.com/embed/w_Ma8oQLmSM?rel=0;&autoplay=1&mute=0&loop=1&playlist=w_Ma8oQLmSM&controls=0",
+      // template link
+      // "https://www.youtube.com/embed/RTO99XQE1Ow?rel=0;&autoplay=1&mute=0&loop=1&playlist=RTO99XQE1Ow&controls=0",
+      // "https://www.youtube.com/embed/xxxxxx?rel=0;&autoplay=1&mute=0&loop=1&playlist=xxxxxx&controls=0",
 
-        ];
+      // <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yc36ujEIjPc" title="مستجدات الأوضاع في السودان.. تغطية حية لحظة بلحظة" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      // Alsharqiya
+      // Zagros Arabic
+      // UTV
+      // Mukameleen
+      // Huna Baghdad
+      // One news
 
-        // template link
-        // "https://www.youtube.com/embed/RTO99XQE1Ow?rel=0;&autoplay=1&mute=0&loop=1&playlist=RTO99XQE1Ow&controls=0",
-        // "https://www.youtube.com/embed/xxxxxx?rel=0;&autoplay=1&mute=0&loop=1&playlist=xxxxxx&controls=0",
+      const channelsNames = [
+        "Alarabiya",
+        "Alarabiya Alsaoodiya",
+        "Alaraby",
+        "Alekhbariya",
+        "Alfaloujah",
+        "Alghad",
+        "Alhadath",
+        "Alhiwar",
+        "Alhurra",
+        "Aljadeed",
+        "Aljazeera",
+        "Almashhad",
+        "Alqahera",
+        "Alqahera  Walnas",
+        "Almagharibiya",
+        "AlMayadeen",
+        "AlRasheed",
+        "Alsaoodiya",
+        "Altaghier",
+        "Asharq Business",
+        "Asharq News",
+        "BBC",
+        "Belqees",
+        "CNBC Arabia",
+        "DW",
+        "Dijlah",
+        "France 24",
+        "Iraq 24",
+        "Orient",
+        "Sky News",
+        "Aljazeera",
+        "Arirang",
+        "CGTN",
+        "CNA",
+        "DW",
+        "Euro News",
+        "Fox Now",
+        "France 24",
+        "GB News",
+        "i24 English",
+        "India Today",
+        "Sky News",
+        "TRT",
+        "Westminister",
+        "Nat Geo",
+        "Nat Geo Wild",
+        "NBC News",
+        "NBC 2 News",
+        "News 12",
+        "Unknown2",
+        "Unknown3",
+        "Unknown4",
+      ];
 
+      const saveLastActiveChannel = (num) => {
+        localStorage.setItem("lastChannel", num);
+        console.log(
+          `lastChannel set to ${localStorage.getItem("lastChannel")}`,
+        );
+      };
 
-        // <iframe width="1280" height="720" src="https://www.youtube.com/embed/Yc36ujEIjPc" title="مستجدات الأوضاع في السودان.. تغطية حية لحظة بلحظة" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        // Alsharqiya
-        // Zagros Arabic
-        // UTV
-        // Mukameleen
-        // Huna Baghdad
-        // One news
+      const setSrc = (link) => {
+        console.log("changing channel to: ");
+        console.log(link);
+        let iframe = document.getElementById("iframe");
+        if (iframe.src !== link) {
+          iframe.setAttribute("src", link);
+          changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
+          changeActiveGroupButtonStyle(channelsLinks.indexOf(link));
+          saveLastActiveChannel(channelsLinks.indexOf(link));
+        }
+      };
 
-        const channelsNames = [
-        'Alarabiya', 'Alaraby', 'Alekhbariya', 'Alfaloujah', 'Alghad', 'Alhadath', 'Alhiwar', 'Alhurra', 'Aljadeed', 'Aljazeera', 'Almashhad', 'Alqahera', 'Alqahera  Walnas', 'Almagharibiya', 'AlMayadeen', 'Alsaoodiya', 'Altaghier', 'Asharq Business', 'Asharq News', 'BBC', 'Belqees', 'CNBC Arabia', 'DW', 'Dijlah', 'France 24', 
-         'Iraq 24', 'Orient', 'Sky News', 
-         'Aljazeera', 'Arirang', 'CGTN', 'CNA', 'DW', 'Euro News', 'France 24', 'GB News', 'i24 English', 'Sky News', 'TRT', 'Westminister', 'Nat Geo', 'Nat Geo Wild', 'NBC News', 'NBC 2 News', 'News 12', 'Unknown2', 'Unknown3', 'Unknown4'];
-        
-        const saveLastActiveChannel = (num) => {
-            localStorage.setItem('lastChannel', num);
-            console.log(`lastChannel set to ${localStorage.getItem('lastChannel')}`)
+      const restoreLastActiveChannel = () => {
+        if (localStorage.getItem("lastChannel") == null) {
+          console.log("first time");
+          console.log(link[localStorage.getItem("lastChannel")]);
+          setSrc(channelsLinks[localStorage.getItem("lastChannel")]);
+        } else {
+          console.log("restoring the lastChannel");
+          console.log(localStorage.getItem("lastChannel"));
+          setSrc(channelsLinks[localStorage.getItem("lastChannel")]);
+        }
+        localStorage.getItem("lastChannel");
+      };
+
+      let channelsCounter = 0;
+
+      channelsLinks.forEach((channel) => {
+        let button = document.createElement("BUTTON");
+        let text = document.createTextNode(channelsNames[channelsCounter]);
+        button.onclick = function () {
+          setSrc(channel);
+        };
+        button.setAttribute("class", "display-block");
+        button.classList.add("channel-button");
+        button.appendChild(text);
+
+        if (channelsLinks.indexOf(channel) < 26) {
+          document
+            .getElementById("arabic-channels-buttons-container")
+            .appendChild(button);
+        } else if (
+          channelsLinks.indexOf(channel) >= 26 &&
+          channelsLinks.indexOf(channel) < 200
+        ) {
+          document
+            .getElementById("english-channels-buttons-container")
+            .appendChild(button);
+        } else {
+          document
+            .getElementById("dutch-channels-buttons-container")
+            .appendChild(button);
         }
 
-        const setSrc = (link) => {
-            console.log('changing channel to: ');
-            console.log(link);
-            let iframe = document.getElementById('iframe');
-            if ( iframe.src !== link) {
-                iframe.setAttribute('src', link);
-                changeActiveChannelButtonStyle(channelsLinks.indexOf(link));
-                changeActiveGroupButtonStyle(channelsLinks.indexOf(link));
-                saveLastActiveChannel(channelsLinks.indexOf(link))   
-            }            
+        channelsCounter++;
+      });
+
+      const show = (item) => {
+        document.getElementById(item).style.display = "flex";
+      };
+
+      const hide = (item) => {
+        document.getElementById(item).style.display = "none";
+      };
+
+      // Add next and previous buttons event listener
+      function checkkey(event) {
+        let currentChannel = channelsLinks.indexOf(
+          document.getElementById("iframe").src,
+        );
+        if (event.keyCode == 37 && currentChannel > 0) {
+          setSrc(channelsLinks[--currentChannel]);
+        } else if (
+          event.keyCode == 39 &&
+          currentChannel < channelsLinks.length - 1
+        ) {
+          console.log("pressing right arrow");
+          console.log(currentChannel);
+          setSrc(channelsLinks[++currentChannel]);
         }
+      }
 
-        const restoreLastActiveChannel = () => {
-            if (localStorage.getItem('lastChannel') == null) {
-                console.log('first time');
-                console.log(link[localStorage.getItem('lastChannel')]);
-                setSrc(channelsLinks[localStorage.getItem('lastChannel')])
-            }else {
-                console.log('restoring the lastChannel');
-                console.log(localStorage.getItem('lastChannel'));
-                setSrc(channelsLinks[localStorage.getItem('lastChannel')])
-            }
-            localStorage.getItem('lastChannel' )
+      function changeActiveChannelButtonStyle(active) {
+        console.log(`changing active channel style of number: ${active}`);
+        let channelButtons = document.querySelectorAll(".channel-button");
+        console.log(channelButtons.length);
+        document.querySelectorAll(".active-channel").forEach((channel) => {
+          channel.classList.remove("active-channel");
+        });
+        channelButtons[active].classList.add("active-channel");
+      }
+
+      function changeActiveGroupButtonStyle(active) {
+        let groupButton = document.querySelectorAll(".group-button");
+        document.querySelectorAll(".active-group").forEach((group) => {
+          group.classList.remove("active-group");
+        });
+        if (active <= 22) {
+          groupButton[0].classList.add("active-group");
+        } else {
+          groupButton[2].classList.add("active-group");
         }
+      }
 
+      let initial = 1;
+      function showArabicGroup() {
+        show("arabic-channels-buttons-container");
+      }
 
-        let channelsCounter = 0;
+      function showEnglishGroup() {
+        show("english-channels-buttons-container");
+      }
 
-            channelsLinks.forEach((channel) => {
-                let button = document.createElement('BUTTON');
-                let text = document.createTextNode(channelsNames[channelsCounter]);
-                button.onclick = function () {
-                    setSrc(channel);
-                }
-                button.setAttribute('class', 'display-block');
-                button.classList.add('channel-button');
-                button.appendChild(text);
-                
-                if(channelsLinks.indexOf(channel) < 26) {
-                    document.getElementById('arabic-channels-buttons-container').appendChild(button);
-                } else if(channelsLinks.indexOf(channel) >= 26 && channelsLinks.indexOf(channel) < 200) {
-                    document.getElementById('english-channels-buttons-container').appendChild(button);
-                } else {
-                    document.getElementById('dutch-channels-buttons-container').appendChild(button);
-                }
-                
-                channelsCounter++;
-            });
+      function resetPosition() {
+        hide("arabic-channels-buttons-container");
+        let groupButtons = document.querySelectorAll(".group-button");
 
-            const show = (item) => {
-                document.getElementById(item).style.display = 'flex';
-            }
+        let groupsAndChannelsContainer = document.getElementById(
+          "groups-and-channels-container",
+        );
 
-            const hide = (item) => {
-                document.getElementById(item).style.display = 'none';
-            }
+        console.log("mouseout2");
+        groupsAndChannelsContainer.style.left = initial + "px";
+        groupButtons[0].removeEventListener("mouseover", showArabicGroup);
+        groupButtons.forEach((groupButton) => {
+          groupButton.removeEventListener("mouseover", [
+            showArabicGroup,
+            showEnglishGroup,
+          ]);
+        });
+      }
 
-            // Add next and previous buttons event listener
-            function checkkey(event) {
-                let currentChannel = channelsLinks.indexOf(document.getElementById('iframe').src);
-                if(event.keyCode == 37 && currentChannel > 0) {
-                    setSrc(channelsLinks[--currentChannel]);
-                } else if(event.keyCode == 39 && currentChannel < channelsLinks.length - 1) {
-                    console.log('pressing right arrow');
-                    console.log(currentChannel);
-                    setSrc(channelsLinks[++currentChannel]);
-                }
-            }
+      function startAnimation(val) {
+        console.log("started animation");
+        let hamburger = document.getElementById("hamburger");
+        let groupsContainer = document.getElementById("groups-container");
+        let groupsAndChannelsContainer = document.getElementById(
+          "groups-and-channels-container",
+        );
+        let groupButtons = document.querySelectorAll(".group-button");
+        const interva = setInterval(animation, 5);
 
-            function changeActiveChannelButtonStyle(active) {
-                console.log(`changing active channel style of number: ${active}`);
-                let channelButtons = document.querySelectorAll('.channel-button');
-                console.log(channelButtons.length);
-                document.querySelectorAll('.active-channel').forEach((channel) => {
-                    channel.classList.remove('active-channel');
-                })
-                channelButtons[active].classList.add('active-channel');
-            }
+        groupsAndChannelsContainer.style.display = "flex";
 
-            function changeActiveGroupButtonStyle(active) {
-                let groupButton = document.querySelectorAll('.group-button');
-                document.querySelectorAll('.active-group').forEach((group) => {
-                    group.classList.remove('active-group');
-                })
-                if (active <= 22) {
-                    groupButton[0].classList.add('active-group')
-                } else {
-                    groupButton[2].classList.add('active-group')
-                }
-            }
+        function animation() {
+          if (groupsAndChannelsContainer.style.left == "58px") {
+            console.log("if is true");
+            groupButtons[0].addEventListener("mouseover", showArabicGroup);
+            groupButtons[2].addEventListener("mouseover", showEnglishGroup);
+            console.log("55 reached!");
+            clearInterval(interva);
+            initial = 0;
+            // groupsAndChannelsContainer.addEventListener('mouseOut', (event) => { event.target.style.display = "none"});
+          } else {
+            console.log("else is true");
+            groupsAndChannelsContainer.style.left = initial++ + "px";
+          }
+        }
+      }
 
-            let initial = 1;
-            function showArabicGroup() {
-                show('arabic-channels-buttons-container')
-
-            }
-
-            function resetPosition() {
-                hide('arabic-channels-buttons-container');
-                let groupButtons = document.querySelectorAll('.group-button');
-
-                let groupsAndChannelsContainer = document.getElementById('groups-and-channels-container');
-
-
-                console.log('mouseout2');
-                groupsAndChannelsContainer.style.left = initial + 'px';
-                groupButtons[0].removeEventListener('mouseover', showArabicGroup)
-                
-
-            }
-
-            
-            function startAnimation(val) {
-                console.log('started animation');
-                 let hamburger = document.getElementById('hamburger');
-                 let groupsContainer = document.getElementById('groups-container');
-                 let groupsAndChannelsContainer = document.getElementById('groups-and-channels-container');
-                 let groupButtons = document.querySelectorAll('.group-button');
-                 const interva = setInterval(animation, 5);
-
-
-                 groupsAndChannelsContainer.style.display = 'flex';
-
-                 function animation() {
-                    if (groupsAndChannelsContainer.style.left == '58px') {
-                        console.log('if is true');
-                        groupButtons[0].addEventListener('mouseover', showArabicGroup);                        
-                        console.log('55 reached!');
-                        clearInterval(interva);
-                        initial = 0;
-                        // groupsAndChannelsContainer.addEventListener('mouseOut', (event) => { event.target.style.display = "none"});
-                        
-                    } else{
-                        console.log('else is true');
-                        groupsAndChannelsContainer.style.left = initial++ + 'px';
-                    }
-                 }
-            }
-
-
-
-
-
-
-            window.addEventListener('keydown', checkkey)
-            restoreLastActiveChannel();
+      window.addEventListener("keydown", checkkey);
+      restoreLastActiveChannel();     
     </script>
   </body>
 </html>

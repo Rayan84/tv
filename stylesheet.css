@@ -1,7 +1,7 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
 
 button {
@@ -16,102 +16,101 @@ button {
   background-color: rgba(106, 175, 175, 0.6);
   padding: 0.5rem 1rem;
   margin: 2px;
-
 }
 
 button:hover {
-    background-color: orange;
-    color: white;
+  background-color: orange;
+  color: white;
 }
 
 .text-align-center {
-    text-align: center;
+  text-align: center;
 }
 
 #hamburger {
-    z-index: 50;
+  z-index: 50;
 }
 
 .menus-container {
-    left: 4%;
-    top: 2rem;
+  left: 4%;
+  top: 2rem;
 }
 
 .groups-container {
-    flex-direction: column;
-    z-index: 2;
+  flex-direction: column;
+  z-index: 2;
 }
 
 .group-button {
-    display: flex;
+  display: flex;
 }
 
 .group-button:hover span {
-    opacity: 1;
+  opacity: 1;
 }
 
 .extend-arrow {
-    float: right;
-    opacity: 0;
-    padding-right: 0;
-    padding-left: 1rem;
+  float: right;
+  opacity: 0;
+  padding-right: 0;
+  padding-left: 1rem;
 }
 
 .display-flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-direction-row {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 #arabic-channels-buttons-container,
 #iraq-channels-buttons-container,
 #dutch-channels-buttons-container,
 #english-channels-buttons-container {
-    display: none;
-    border-radius: 5px;
-    max-height: 90vh;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: none;
+  border-radius: 5px;
+  max-height: 90vh;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #iframe {
-    width: 99vw;
-    height: 99vh;
-    pointer-events: none;
+  width: 99vw;
+  height: 99vh;
+  pointer-events: none;
 }
 
 .active-channel,
 .active-group {
-    color: orange;
-    background-color: black;
-    opacity: 0.8;
+  color: orange;
+  background-color: black;
+  opacity: 0.8;
 }
 
 .display-flex {
-    display: flex;
+  display: flex;
 }
 .display-block {
-    display: block;
+  display: block;
 }
 
 .display-none {
-    display: none;
+  display: none;
 }
 
 .position-absolute {
-    position: absolute;
+  position: absolute;
 }
 
 .position-relative {
-    position: relative;
+  position: relative;
 }
 
 .border-none {
-    border: none;
+  border: none;
 }
 
 .width-100-percent {
-    width: 100%;
+  width: 100%;
 }
