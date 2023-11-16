@@ -28,16 +28,16 @@
           class="position-absolute display-none"
         >
           <div id="groups-container" class="groups-container">
-            <button id="" class="width-100-percent group-button">
+            <button id="arabic-group-button" class="width-100-percent group-button">
               Arabic<span class="extend-arrow">&#8250;</span>
             </button>
-            <button id="" class="width-100-percent group-button">
+            <button id="dutch-group-button" class="width-100-percent group-button">
               Dutch<span class="extend-arrow">&#8250;</span>
             </button>
-            <button id="" class="width-100-percent group-button">
+            <button id="english-group-button" class="width-100-percent group-button">
               English<span class="extend-arrow">&#8250;</span>
             </button>
-            <button id="" class="width-100-percent group-button">
+            <button id="iraqi-group-button" class="width-100-percent group-button">
               Iraqi<span class="extend-arrow">&#8250;</span>
             </button>
           </div>
@@ -70,31 +70,45 @@
         src=""
         allow="autoplay"
         frameborder="0"
+        data-setup="{}"
       ></iframe>
     </div>
 
     <script>
+      let channelsLists = [
+        document.getElementById('arabic-channels-buttons-container'),
+        document.getElementById('english-channels-buttons-container'),
+        document.getElementById('dutch-channels-buttons-container'),
+        document.getElementById('iraq-channels-buttons-container')
+      ]
+
       const channelsLinks = [
         // Arabic
+        // Al Aan
+        "https://www.dailymotion.com/embed/video/x74wje5?autoplay=1",
+        "https://www.alaraby2.com/live",
         // Alarabiya
+        "https://player.mgmlcdn.com/v1/live?id=MTY0&channelid=MTQ4&countries=Q0M=&w=100%25&h=100%25&filter=DENY&signature=1d27931b3b48f4fef0a95ed8bce1219c",
         // "https://www.dailymotion.com/embed/video/x7z7iel?autoplay=1",
-        "https://www.youtube.com/embed/-hCJP9aI-HI?rel=0;&autoplay=1&mute=0&loop=1&playlist=-hCJP9aI-HI&controls=0",
+        "https://www.youtube.com/embed/HcC2lbmKH-Q?rel=0;&autoplay=1&mute=0&loop=1&playlist=HcC2lbmKH-Q&controls=0",
         // Alarabiya Alsaoodiya
         "https://www.youtube.com/embed/DoKG6N5YmI4?rel=0;&autoplay=1&mute=0&loop=1&playlist=DoKG6N5YmI4&controls=0",
         // Alaraby
         "https://www.youtube.com/embed/e2RgSa1Wt5o?rel=0;&autoplay=1&mute=0&loop=1&playlist=e2RgSa1Wt5o&controls=0",
+        // Albalad
+        "https://player.twitch.tv/?channel=elbaladtv&parent=elbaladtv.net&referrer=https%3A%2F%2Felbaladtv.net%2F%25D8%25A7%25D9%2584%25D8%25A8%25D8%25AB-%25D8%25A7%25D9%2584%25D9%2585%25D8%25A8%25D8%25A7%25D8%25B4%25D8%25B1%2F",
         // Alekhbariya
-        "https://www.youtube.com/embed/GZ-5BO0QLQw?rel=0;&autoplay=1&mute=0&loop=1&playlist=GZ-5BO0QLQw&controls=0",
+        "https://www.youtube.com/embed/hr2rgcpXUuk?rel=0;&autoplay=1&mute=0&loop=1&playlist=hr2rgcpXUuk&controls=0",
         // Alfallujah
-        "https://vimeo.com/event/885461/embed",
+        "https://vimeo.com/event/885461/embed/",
         // Alghad
-        "https://www.youtube.com/embed/RTO99XQE1Ow?rel=0;&autoplay=1&mute=0&loop=1&playlist=RTO99XQE1Ow&controls=0",
+        "https://www.youtube.com/embed/L_A-S4eTrik?rel=0;&autoplay=1&mute=0&loop=1&playlist=L_A-S4eTrik&controls=0",
         // Alhadath
-        "https://www.youtube.com/embed/MW52zOYZCQc?rel=0;&autoplay=1&mute=0&loop=1&playlist=MW52zOYZCQc&controls=0",
+        "https://www.youtube.com/embed/5Nenmj6VYaA?rel=0;&autoplay=1&mute=0&loop=1&playlist=5Nenmj6VYaA&controls=0",
         // Alhiwar
         "https://www.youtube.com/embed/Y_uOVqYX0Tw?rel=0;&autoplay=1&mute=0&loop=1&playlist=Y_uOVqYX0Tw&controls=0",
         // Alhurra
-        "https://www.youtube.com/embed/vDAZVdMYBDw?rel=0;&autoplay=1&mute=0&loop=1&playlist=vDAZVdMYBDw&controls=0",
+        "https://www.youtube.com/embed/EDgpzBjbHUY?rel=0;&autoplay=1&mute=0&loop=1&playlist=EDgpzBjbHUY&controls=0",
         // Al Jadeed KSA
         "https://www.youtube.com/embed/45mAieHsMyM?rel=0;&autoplay=1&mute=0&loop=1&playlist=45mAieHsMyM&controls=0",
         // Aljazeera
@@ -109,6 +123,10 @@
         "https://www.youtube.com/embed/kbfMIjdayak?rel=0;&autoplay=1&mute=0&loop=1&playlist=kbfMIjdayak&controls=0",
         // AlMayadeen
         "https://www.youtube.com/embed/43w0grKCeMA?rel=0;&autoplay=1&mute=0&loop=1&playlist=43w0grKCeMA&controls=0",
+        // Alrai
+        "https://www.youtube.com/embed/KvKcb58WOFE?rel=0;&autoplay=1&mute=0&loop=1&playlist=KvKcb58WOFE&controls=0",
+        // Alrabiaa
+        "https://player.castr.com/live_c6c4040053cd11ee95b47153d2861736",
         // AlRasheed
         "https://media1.livaat.com/AL-RASHEED-HD/embed.html",
         // Alsaoodiya
@@ -131,23 +149,42 @@
         "https://ghaasiflu.online/Dijlah/embed.html",
         // France 24 Arabic
         "https://www.youtube.com/embed/VuYzy8IuT0Y?rel=0;&autoplay=1&mute=0&loop=1&playlist=VuYzy8IuT0Y&controls=0",
+        // Halab Today
+        "https://player.twitch.tv/?channel=halabtodaytvlive&height=450&parent=halabtodaytv.net&referrer=https%3A%2F%2Fhalabtodaytv.net%2F&width=900%2F",
         // KSA Sport
         // iraq 24
-        "https://ghaasiflu.online/Iraq24/embed.html?dvr=true",
+        "https://ghaasiflu.online/Iraq24/embed.html",
+        // MBC Drama
+        "http://azrotv.com/m3u8/embedar/?id=xMbcDrama",
+        // One
+        "https://media.mtv.com.lb/live/one",
         // Orient
         "https://www.youtube.com/embed/rqbChsd8IH4?rel=0;&autoplay=1&mute=0&loop=1&playlist=rqbChsd8IH4&controls=0",
+        // Palestine
+        "https://pbc.furrera.ps/palestinehd/embed.html",
+        // Roya News
+        "https://www.youtube.com/embed/OPZke3rIqQU?rel=0;&autoplay=1&mute=0&loop=1&playlist=OPZke3rIqQU&controls=0",
+        // Sawt Lubnan
+        "https://player.l1vetv.com/vdltv/",
         // Sky News Arabic
         "https://www.youtube.com/embed/me1fBxx9wJY?rel=0;&autoplay=1&mute=0&loop=1&playlist=me1fBxx9wJY&controls=0",
-        // Dutch
+        // Syria
+        "https://www.syria.tv/livestream.php?autoplay=1&mute=0",
+        // Syria Drama
+        "//ok.ru/videoembed/5711335530102",
+        // Zaman
+        "https://ghaasiflu.online/tarab/embed.html",
+                                           // Dutch
         // Gelderland
-        "https://omroepgelderland.bbvms.com/p/default/c/3878397.html?inheritDimensions=true",
+        "https://omroepgelderland.bbvms.com/p/default/c/3878397.html?rel=0;&autoplay=1&mute=0&loop=1&playlist=3878397",
+        // inheritDimensions=true&autoplay=1&mute=0&loop=1&playlist=3878397&controls=0
                                           // English
         // Aljazeera
         "https://www.youtube.com/embed/gCNeDWCI0vo?rel=0;&autoplay=1&mute=0&loop=1&playlist=gCNeDWCI0vo&controls=0",
         // Arirang
         "https://www.youtube.com/embed/APlvA2wtdKk?rel=0;&autoplay=1&mute=0&loop=1&playlist=APlvA2wtdKk&controls=0",
         // CGTN
-        "https://www.youtube.com/embed/gYUfs9RX95s?rel=0;&autoplay=1&mute=0&loop=1&playlist=gYUfs9RX95s&controls=0",
+        "https://www.youtube.com/embed/UP5z9dRC6RU?rel=0;&autoplay=1&mute=0&loop=1&playlist=UP5z9dRC6RU&controls=0",
         // CNA
         "https://www.youtube.com/embed/XWq5kBlakcQ?rel=0;&autoplay=1&mute=0&loop=1&playlist=XWq5kBlakcQ",
         // DW English
@@ -205,9 +242,11 @@
       // One news
 
       const channelsNames = [
+        "Alaan",
         "Alarabiya",
         "Alarabiya Alsaoodiya",
         "Alaraby",
+        "Albalad",
         "Alekhbariya",
         "Alfaloujah",
         "Alghad",
@@ -221,6 +260,8 @@
         "Alqahera  Walnas",
         "Almagharibiya",
         "AlMayadeen",
+        "Alrai",
+        "Alrabiaa",
         "AlRasheed",
         "Alsaoodiya",
         "Altaghier",
@@ -232,9 +273,18 @@
         "DW",
         "Dijlah",
         "France 24",
+        "Halab Today",
         "Iraq 24",
+        "MBC Drama",
+        "One",
         "Orient",
+        "Palestine",
+        "Roya News",
+        "Sawt Lubnan",
         "Sky News",
+        "Syria",
+        "Syria Drama",
+        "Zaman",
         "Aljazeera",
         "Arirang",
         "CGTN",
@@ -303,12 +353,12 @@
         button.classList.add("channel-button");
         button.appendChild(text);
 
-        if (channelsLinks.indexOf(channel) < 26) {
+        if (channelsLinks.indexOf(channel) < 32) {
           document
             .getElementById("arabic-channels-buttons-container")
             .appendChild(button);
         } else if (
-          channelsLinks.indexOf(channel) >= 26 &&
+          channelsLinks.indexOf(channel) >= 32 &&
           channelsLinks.indexOf(channel) < 200
         ) {
           document
@@ -372,15 +422,19 @@
 
       let initial = 1;
       function showArabicGroup() {
+        channelsLists.forEach((list) => list.style.display = 'none');
         show("arabic-channels-buttons-container");
       }
 
       function showEnglishGroup() {
+        channelsLists.forEach((list) => list.style.display = 'none');
         show("english-channels-buttons-container");
       }
 
       function resetPosition() {
         hide("arabic-channels-buttons-container");
+        hide("english-channels-buttons-container");
+
         let groupButtons = document.querySelectorAll(".group-button");
 
         let groupsAndChannelsContainer = document.getElementById(
@@ -397,6 +451,8 @@
           ]);
         });
       }
+
+
 
       function startAnimation(val) {
         console.log("started animation");

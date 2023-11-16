@@ -1,0 +1,6 @@
+- Add full screen feature item.fullScreen
+- Fix groups hover
+- Add other browsers support mechanism
+- Add 3mu8 support
+- Add Rotana
+- Add Readme file content
